@@ -254,33 +254,41 @@
 
     Bundle 'Shougo/neosnippet-snippets'
 
-" Javascript
-    Bundle 'elzr/vim-json'
-    Bundle 'groenewege/vim-less'
-    Bundle 'pangloss/vim-javascript'
-    Bundle 'briancollins/vim-jst'
-    Bundle 'kchmck/vim-coffee-script'
+" Programming Languages
 
-" Haskell
-"Bundle 'travitch/hasksyn'
-"Bundle 'dag/vim2hs'
-"Bundle 'Twinside/vim-haskellConceal'
-"Bundle 'lukerandall/haskellmode-vim'
-"Bundle 'ujihisa/neco-ghc'
-"Bundle 'eagletmt/ghcmod-vim'
-"Bundle 'Shougo/vimproc'
-"Bundle 'adinapoli/cumino'
-"Bundle 'bitc/vim-hdevtools'
+    " Javascript
+        Bundle 'elzr/vim-json'
+        Bundle 'pangloss/vim-javascript'
+        Bundle 'briancollins/vim-jst'
+        Bundle 'kchmck/vim-coffee-script'
 
-" Markup & CSS
-    Bundle 'amirh/HTML-AutoCloseTag'
-    Bundle 'hail2u/vim-css3-syntax'
-    Bundle 'skammer/vim-css-color'
-    Bundle 'tpope/vim-haml'
-    Bundle 'wavded/vim-stylus'
-    Bundle 'tpope/vim-markdown'
-    Bundle 'groenewege/vim-less'
-    Bundle 'digitaltoad/vim-jade'
+        " JS Beautify
+        Bundle 'maksimr/vim-jsbeautify'
+        Bundle 'einars/js-beautify'
+          map <c-f> :call JsBeautify()<cr>
+          " or
+          autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+          " for html
+          autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+          " for css or scss
+          autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
-"Erlang
-    Bundle 'jimenezrick/vimerl'
+          autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+          autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+          autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+
+    " Markup & CSS
+        Bundle 'amirh/HTML-AutoCloseTag'
+        Bundle 'hail2u/vim-css3-syntax'
+        Bundle 'skammer/vim-css-color'
+        Bundle 'tpope/vim-haml'
+        Bundle 'wavded/vim-stylus'
+        Bundle 'tpope/vim-markdown'
+        Bundle 'groenewege/vim-less'
+        Bundle 'digitaltoad/vim-jade'
+
+    " Erlang
+        Bundle 'jimenezrick/vimerl'
+
+    " Clojure
+        Bundle 'vim-scripts/paredit.vim'
