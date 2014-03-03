@@ -1,0 +1,33 @@
+{
+  "ass":        false,
+  "bitwise":    true,
+  "closure":    false,
+  "continue":   true,
+  "debug":      false,
+  "eqeq":       false,
+  "es5":        false,
+  "evil":       false,
+  "forin":      false,
+  "fragment":   true,
+  "newcap":     false,
+  "nomen":      true,
+  "plusplus":   false,
+  "regexp":     true,
+  "sloppy":     false,
+  "stupid":     false,
+  "sub":        false,
+  "todo":       false,
+  "vars":       true,
+  "white":      false,
+
+  "browser":    true,
+  "devel":      false,
+  "node":       true,
+  "rhino":      false,
+  "windows":    false,
+
+  "indent":     2,
+  "maxerr":     50,
+  "maxlen":     80,
+  "passfail":   false
+}
