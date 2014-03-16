@@ -12,6 +12,10 @@ export DBURL=http://127.0.0.1:5984/
 
 export PATH="$PATH":~/bin
 
+# player/stage paths
+export DYLD_LIBRARY_PATH=/Users/johann/stg/lib
+export STAGEPATH=/usr/local/lib
+
 # Setting PATH for Python 2.7
 # The orginal version is saved in .bash_profile.pysave
 # PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"

@@ -150,6 +150,21 @@
 
 " Snippets & AutoComplete
 
+    Bundle 'Shougo/neosnippet'
+        " Disable the neosnippet preview candidate window
+        " When enabled, there can be too much visual noise
+        " especially when splits are used.
+        set completeopt-=preview
+
+        " Enable neosnippet snipmate compatibility mode
+        let g:neosnippet#enable_snipmate_compatibility = 1
+
+        " SuperTab like snippets behavior.
+        imap <silent><expr><TAB> neosnippet#expandable() ?
+                    \ "\<Plug>(neosnippet_expand_or_jump)" : (pumvisible() ?
+                    \ "\<C-e>" : "\<TAB>")
+        smap <TAB> <Right><Plug>(neosnippet_jump_or_expand)
+
     " neocomplcache
     Bundle 'Shougo/neocomplcache'
         let g:acp_enableAtStartup = 0
@@ -237,21 +252,6 @@
     Bundle 'honza/vim-snippets'
         let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
-    Bundle 'Shougo/neosnippet'
-        " Disable the neosnippet preview candidate window
-        " When enabled, there can be too much visual noise
-        " especially when splits are used.
-        set completeopt-=preview
-
-        " Enable neosnippet snipmate compatibility mode
-        let g:neosnippet#enable_snipmate_compatibility = 1
-
-        " SuperTab like snippets behavior.
-        imap <silent><expr><TAB> neosnippet#expandable() ?
-                    \ "\<Plug>(neosnippet_expand_or_jump)" : (pumvisible() ?
-                    \ "\<C-e>" : "\<TAB>")
-        smap <TAB> <Right><Plug>(neosnippet_jump_or_expand)
-
     Bundle 'Shougo/neosnippet-snippets'
 
 " Programming Languages
@@ -292,3 +292,6 @@
 
     " Clojure
         Bundle 'vim-scripts/paredit.vim'
+
+    " Go
+        Bundle 'jnwhiteh/vim-golang'
