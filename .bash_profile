@@ -10,6 +10,10 @@ alias fs_kings='sshfs spaeti@spaeti.pavo.uberspace.de:/home/spaeti/node/kings ~/
 
 export DBURL=http://127.0.0.1:5984/
 
+#export NXJ_HOME="/Users/johann/leJOS_NXJ"
+export LEJOS_NXT_JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home"
+#export PATH="$NXJ_HOME/bin:$PATH"
+
 export PATH="$PATH":~/bin
 
 # player/stage paths

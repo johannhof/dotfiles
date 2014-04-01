@@ -254,6 +254,9 @@
     cmap cwd lcd %:p:h
     cmap cd. lcd %:p:h
 
+    " replace visual selection
+    vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+
     " Visual shifting (does not exit Visual mode)
     vnoremap < <gv
     vnoremap > >gv
@@ -282,6 +285,9 @@
 
     " Adjust viewports to the same size
     map <Leader>= <C-w>=
+
+    " Map space to play back the q macro
+    nnoremap <Space> @q
 
     " Map <Leader>ff to display all lines with keyword under cursor
     " and ask which one to jump to
