@@ -17,7 +17,7 @@ export LEJOS_NXT_JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions
 export PATH="$PATH":~/bin
 
 # player/stage paths
-export DYLD_LIBRARY_PATH=/Users/johann/stg/lib
+#export DYLD_LIBRARY_PATH=/Users/johann/stg/lib
 export STAGEPATH=/usr/local/lib
 
 # Setting PATH for Python 2.7
