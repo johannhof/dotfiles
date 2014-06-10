@@ -4,9 +4,14 @@ alias mongo1='mongod --port 27017 --dbpath /usr/local/var/mongodb/rs0-0 --replSe
 alias mongo2='mongod --port 27018 --dbpath /usr/local/var/mongodb/rs0-1 --replSet rs0'
 alias mongo3='mongod --port 27019 --dbpath /usr/local/var/mongodb/rs0-2 --replSet rs0'
 
+export GOPATH="$HOME/Development/go"
+export PATH=$PATH:$GOPATH/bin
+
+export PATH=$(brew --prefix ruby)/bin:$PATH
+
 alias pss='python -m SimpleHTTPServer'
 
-alias fs_kings='sshfs spaeti@spaeti.pavo.uberspace.de:/home/spaeti/node/kings ~/ftp/'
+alias fs_spaeti='sshfs spaeti@spaeti.pavo.uberspace.de:/home/spaeti/ ~/ftp/'
 
 export DBURL=http://127.0.0.1:5984/
 
@@ -14,7 +19,7 @@ export DBURL=http://127.0.0.1:5984/
 export LEJOS_NXT_JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home"
 #export PATH="$NXJ_HOME/bin:$PATH"
 
-export PATH="$PATH":~/bin
+export PATH=$PATH:~/bin
 
 # player/stage paths
 #export DYLD_LIBRARY_PATH=/Users/johann/stg/lib

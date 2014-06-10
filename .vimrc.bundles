@@ -50,25 +50,22 @@
         " If undotree is opened, it is likely one wants to interact with it.
         let g:undotree_SetFocusWhenToggle=1
 
-    Bundle 'bling/vim-airline'
     " vim-airline
+    Bundle 'bling/vim-airline'
         if !exists('g:airline_symbols')
             let g:airline_symbols = {}
         endif
 
-        " Use the powerline theme and optionally enable powerline symbols.
-        " To use the symbols , , , , , , and .in the statusline
-        " segments add the following to your .vimrc.before.local file:
-        "   let g:airline_powerline_fonts=1
-        " If the previous symbols do not render for you then install a
-        " powerline enabled font.
-        let g:airline_theme = 'powerlineish'
-        if !exists('g:airline_powerline_fonts')
-            " Use the default set of separators with a few customizations
-            let g:airline_left_sep = '▶'
-            let g:airline_right_sep = '◀'
-            let g:airline_detect_modified=1
-        endif
+        let g:airline_powerline_fonts=1
+
+        " old vim-powerline symbols
+        let g:airline_left_sep = '⮀'
+        let g:airline_left_alt_sep = '⮁'
+        let g:airline_right_sep = '⮂'
+        let g:airline_right_alt_sep = '⮃'
+        let g:airline_symbols.branch = '⭠'
+        let g:airline_symbols.readonly = '⭤'
+        let g:airline_symbols.linenr = '⭡'
 
     Bundle 'airblade/vim-gitgutter'
     " vim-gitgutter
@@ -102,6 +99,7 @@
     Bundle 'matchit.zip'
 
     Bundle 'Lokaltog/vim-easymotion'
+    Bundle 'vim-scripts/camelcasemotion'
     Bundle 'godlygeek/csapprox'
     Bundle 'jistr/vim-nerdtree-tabs'
     Bundle 'flazz/vim-colorschemes'
@@ -117,21 +115,11 @@
         let g:syntastic_javascript_checkers = ['jslint', 'jsl', 'jshint', 'eslint']
         let g:syntastic_javascript_jsl_conf = "~/.lint/jsl.conf"
         let g:syntastic_javascript_jshint_conf = "~/.lint/.jshintrc"
-        let g:syntastic_javascript_jslint_args = "--white --browser --node --undef --plusplus --indent 2 --nomen --bitwise --sloppy --vars --maxlen 120 --maxerr 100 --predef $ React Backbone _"
+        let g:syntastic_javascript_jslint_args = "--white --browser --node --plusplus --unparam --indent 2 --nomen --bitwise --sloppy --vars --maxlen 120 --maxerr 100 --predef $ React Backbone _"
         let g:syntastic_cpp_compiler = 'clang++'
 
     " Fugitive
     Bundle 'tpope/vim-fugitive'
-        nnoremap <silent> <leader>gs :Gstatus<CR>
-        nnoremap <silent> <leader>gd :Gdiff<CR>
-        nnoremap <silent> <leader>gc :Gcommit<CR>
-        nnoremap <silent> <leader>gb :Gblame<CR>
-        nnoremap <silent> <leader>gl :Glog<CR>
-        nnoremap <silent> <leader>gp :Git push<CR>
-        nnoremap <silent> <leader>gr :Gread<CR>:GitGutter<CR>
-        nnoremap <silent> <leader>gw :Gwrite<CR>:GitGutter<CR>
-        nnoremap <silent> <leader>ge :Gedit<CR>
-        nnoremap <silent> <leader>gg :GitGutterToggle<CR>
 
     " Tabularize
     Bundle 'godlygeek/tabular'

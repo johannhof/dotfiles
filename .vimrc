@@ -111,7 +111,7 @@
 " }
 
 " Vim UI {
-    colorscheme jellybeans
+    colorscheme Tomorrow-Night
 
     set tabpagemax=15               " Only show 15 tabs
     set showmode                    " Display the current mode
@@ -338,31 +338,6 @@
             let g:pymode = 1
         endif
     " }
-" }
-
-" GUI Settings {
-
-    " GVIM- (here instead of .gvimrc)
-    if has('gui_running')
-        set guioptions-=T           " Remove the toolbar
-        set lines=40                " 40 lines of text instead of 24
-        if has("gui_gtk2")
-            set guifont=Andale\ Mono\ Regular\ 16,Menlo\ Regular\ 15,Consolas\ Regular\ 16,Courier\ New\ Regular\ 18
-        elseif has("gui_mac")
-            set guifont=Andale\ Mono\ Regular:h16,Menlo\ Regular:h15,Consolas\ Regular:h16,Courier\ New\ Regular:h18
-        elseif has("gui_win32")
-            set guifont=Andale_Mono:h10,Menlo:h10,Consolas:h10,Courier_New:h10
-        endif
-        if has('gui_macvim')
-            set transparency=5      " Make the window slightly transparent
-        endif
-    else
-        if &term == 'xterm' || &term == 'screen'
-            set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
-        endif
-        "set term=builtin_ansi       " Make arrow and other keys work
-    endif
-
 " }
 
 " Functions {
