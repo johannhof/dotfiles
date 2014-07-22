@@ -10,10 +10,10 @@
 
     " Setup Bundle Support {
         " The next three lines ensure that the ~/.vim/bundle/ system works
-        filetype on
+        " filetype on
         filetype off
-        set rtp+=~/.vim/bundle/vundle
-        call vundle#rc()
+        set rtp+=~/.vim/bundle/Vundle.vim
+        call vundle#begin()
     " }
 
 " }

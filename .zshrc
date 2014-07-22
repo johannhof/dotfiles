@@ -7,14 +7,17 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 alias pss='python -m SimpleHTTPServer'
+
+export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/opt/ruby/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Users/johann/Development/go/bin:/Users/johann/bin"
 
 export GOPATH="$HOME/Development/go"
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:~/elixir/bin
+
+export PATH=$(brew --prefix ruby)/bin:$PATH
+
+export PATH=$PATH:~/bin
 
 alias mongo1='mongod --port 27017 --dbpath /usr/local/var/mongodb/rs0-0 --replSet rs0'
 alias mongo2='mongod --port 27018 --dbpath /usr/local/var/mongodb/rs0-1 --replSet rs0'
@@ -57,13 +60,12 @@ alias mongo3='mongod --port 27019 --dbpath /usr/local/var/mongodb/rs0-2 --replSe
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew coffee last-working-dir npm osx)
+plugins=(git brew coffee last-working-dir npm osx gem)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/opt/ruby/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Users/johann/Development/go/bin:/Users/johann/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

@@ -114,7 +114,8 @@
         " JS
         let g:syntastic_javascript_checkers = ['jslint', 'jsl', 'jshint', 'eslint']
         let g:syntastic_javascript_jsl_conf = "~/.lint/jsl.conf"
-        let g:syntastic_javascript_jshint_conf = "~/.lint/.jshintrc"
+        "let g:syntastic_javascript_jshint_conf = "~/.lint/.jshintrc"
+        let g:syntastic_javascript_jshint_args = '--config /Users/johann/.lint/.jshintrc'
         let g:syntastic_javascript_jslint_args = "--white --browser --node --plusplus --unparam --indent 2 --nomen --bitwise --sloppy --vars --maxlen 120 --maxerr 100 --predef $ React Backbone _"
         let g:syntastic_cpp_compiler = 'clang++'
 
