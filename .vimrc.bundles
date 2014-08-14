@@ -27,6 +27,7 @@
 
     " NerdTree
     Bundle 'scrooloose/nerdtree'
+        " auto start nerdtree
         autocmd vimenter * if !argc() | NERDTree | endif
 
         map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
@@ -281,6 +282,9 @@
 
     " Erlang
         Bundle 'jimenezrick/vimerl'
+
+    " Elixir
+        Bundle 'elixir-lang/vim-elixir'
 
     " Clojure
         Bundle 'vim-scripts/paredit.vim'
