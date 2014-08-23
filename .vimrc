@@ -10,7 +10,6 @@
 
     " Setup Bundle Support {
         " The next three lines ensure that the ~/.vim/bundle/ system works
-        " filetype on
         filetype off
         set rtp+=~/.vim/bundle/Vundle.vim
         call vundle#begin()
@@ -26,11 +25,13 @@
         endif
     " }
 
+    call vundle#end()
 " }
 
 " General {
 
     set background=dark         " Assume a dark background
+    set t_Co=256                " Fix Linux Terminal Issues
     filetype plugin indent on   " Automatically detect file types.
     syntax on                   " Syntax highlighting
     set visualbell              " no sounds
