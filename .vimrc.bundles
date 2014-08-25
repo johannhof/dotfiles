@@ -185,13 +185,8 @@
 
         " Plugin key-mappings {
             " These two lines conflict with the default digraph mapping of <C-K>
-            " If you prefer that functionality, add the following to your
-            " .vimrc.before.local file:
-            "   let g:spf13_no_neosnippet_expand = 1
-            if !exists('g:spf13_no_neosnippet_expand')
-                imap <C-k> <Plug>(neosnippet_expand_or_jump)
-                smap <C-k> <Plug>(neosnippet_expand_or_jump)
-            endif
+            imap <C-k> <Plug>(neosnippet_expand_or_jump)
+            smap <C-k> <Plug>(neosnippet_expand_or_jump)
 
             inoremap <expr><C-g> neocomplcache#undo_completion()
             inoremap <expr><C-l> neocomplcache#complete_common_string()
@@ -259,8 +254,10 @@
         " JS Beautify
         Bundle 'maksimr/vim-jsbeautify'
         Bundle 'einars/js-beautify'
-          map <c-f> :call JsBeautify()<cr>
-          " or
+          " use autoindent by default
+          map <c-f> gg=G
+
+          " use js-beautify for js files
           autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
           " for html
           autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
