@@ -17,6 +17,8 @@ export GOPATH="$HOME/Development/go"
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:~/elixir/bin
 
+export PATH=$PATH:~/.linuxbrew/bin
+
 export PATH=$(brew --prefix ruby)/bin:$PATH
 
 export PATH=$PATH:~/bin
