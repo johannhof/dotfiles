@@ -1,7 +1,13 @@
+[user]
+    name = Johann
+    email = git@johann-hofmann.com
+[core]
+    editor = vim
+
 [color]
     diff = auto
-      status = auto
-        branch = auto
-          interactive = auto
-            ui = true
-              pager = true
+    status = auto
+    branch = auto
+    interactive = auto
+    ui = true
+    pager = true
