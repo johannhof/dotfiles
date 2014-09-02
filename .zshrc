@@ -9,23 +9,34 @@ ZSH_THEME="miloshadzic"
 
 DEFAULT_USER=johann
 
-alias pss='python -m SimpleHTTPServer'
+##### PATH #####
 
 export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/opt/ruby/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/Users/johann/Development/go/bin:/Users/johann/bin"
 
-export GOPATH="$HOME/Development/go"
+# GOPATH
+export GOPATH=~/Development/go
 export PATH=$PATH:$GOPATH/bin
+
+# Elixir
 export PATH=$PATH:~/elixir/bin
 
+# Linuxbrew
 export PATH=$PATH:~/.linuxbrew/bin
 
+# Ruby
 export PATH=$(brew --prefix ruby)/bin:$PATH
 
 export PATH=$PATH:~/bin
 
-alias mongo1='mongod --port 27017 --dbpath /usr/local/var/mongodb/rs0-0 --replSet rs0'
-alias mongo2='mongod --port 27018 --dbpath /usr/local/var/mongodb/rs0-1 --replSet rs0'
-alias mongo3='mongod --port 27019 --dbpath /usr/local/var/mongodb/rs0-2 --replSet rs0'
+##### ALIASES #####
+
+# super quick server
+alias pss='python -m SimpleHTTPServer'
+
+# apt-get shortcuts
+alias agi='sudo apt-get install'
+alias agu='sudo apt-get update'
+alias agr='sudo apt-get remove'
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
