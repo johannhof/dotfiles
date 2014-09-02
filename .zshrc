@@ -87,3 +87,4 @@ source $ZSH/oh-my-zsh.sh
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+[[ -s "/home/johann/.gvm/scripts/gvm" ]] && source "/home/johann/.gvm/scripts/gvm"
