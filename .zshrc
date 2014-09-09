@@ -39,11 +39,11 @@ alias agu='sudo apt-get update'
 alias agr='sudo apt-get remove'
 
 # nvm
-export NVM_DIR="/home/johann/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # gvm
-[[ -s "/home/johann/.gvm/scripts/gvm" ]] && source "/home/johann/.gvm/scripts/gvm"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
