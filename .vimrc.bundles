@@ -289,3 +289,6 @@
 
     " Go
         Bundle 'jnwhiteh/vim-golang'
+
+    " Rust
+        Bundle 'wting/rust.vim'
