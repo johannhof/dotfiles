@@ -35,16 +35,21 @@ if [ "$OSX" = true ]; then
     brew install wget
 fi
 
-# install vim
-if [ "$LINUX" = true ]; then
-    sudo apt-get install vim
-fi
-
 # install git
 if [ "$OSX" = true ]; then
     brew install git git-flow
 elif [ "$LINUX" = true ]; then
     sudo apt-get install git git-flow
+fi
+
+# install vim
+if [ "$LINUX" = true ]; then
+    sudo apt-get install vim
+fi
+
+# install vundle
+if [ ! -d "~/.vim/bundle/vundle" ]; then
+  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 
 # install zsh
