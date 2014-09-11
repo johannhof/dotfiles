@@ -42,6 +42,13 @@ elif [ "$LINUX" = true ]; then
     sudo apt-get install git git-flow
 fi
 
+# install mercurial
+if [ "$OSX" = true ]; then
+    brew install mercurial
+elif [ "$LINUX" = true ]; then
+    sudo apt-get install mercurial
+fi
+
 # install vim
 if [ "$LINUX" = true ]; then
     sudo apt-get install vim
@@ -70,3 +77,10 @@ curl https://raw.githubusercontent.com/creationix/nvm/v0.15.0/install.sh | bash
 
 # install go version manager
 zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+
+# install erlang
+brew install erlang
+
+# install elixir
+brew install elixir
+
