@@ -30,6 +30,7 @@
 
 " General {
 
+    set shell=/bin/zsh
     set background=dark         " Assume a dark background
     set t_Co=256                " Fix Linux Terminal Issues
     filetype plugin indent on   " Automatically detect file types.
