@@ -84,3 +84,8 @@ brew install erlang
 # install elixir
 brew install elixir
 
+# install rust
+brew install rust
+
+# im/gm
+brew install imagemagick graphicsmagick
