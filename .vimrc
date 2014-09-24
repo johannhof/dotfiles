@@ -17,6 +17,8 @@
 
 " }
 
+  let mapleader = ','
+
 " Bundles {
 
     " Use bundles config {
@@ -192,7 +194,6 @@
 
 " Key (re)Mappings {
 
-    let mapleader = ','
 
     " Wrapped lines goes down/up to next row, rather than next line in file.
     noremap j gj

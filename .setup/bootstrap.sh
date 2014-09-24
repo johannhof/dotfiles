@@ -6,6 +6,9 @@
 # Should not breaking anything if run multiple times or on an non-blank system, but rather quietly install all missing parts.
 ####
 
+# NOTE: this uses curl | sh excessively as I'm not really scared of huge open source
+# projects injecting malicious code the moment I install this thing on my computer.
+
 # TODO assumes Linux=Debian/Ubuntu and has apt-get
 
 if [ "$(uname)" == "Darwin" ]; then
@@ -85,7 +88,7 @@ brew install erlang
 brew install elixir
 
 # install rust
-brew install rust
+curl https://static.rust-lang.org/rustup.sh | sudo bash
 
 # im/gm
 brew install imagemagick graphicsmagick
