@@ -5,7 +5,7 @@ DEFAULT_USER=johann
 antigen use oh-my-zsh
 
 # theme
-antigen theme johannhof/dotfiles themes/johann
+antigen theme $HOME/.themes/ johann
 
 # plugins
 antigen bundles <<EOBUNDLES
