@@ -1,9 +1,11 @@
 source .antigen/antigen.zsh
 
+DEFAULT_USER=johann
+
 antigen use oh-my-zsh
 
 # theme
-antigen theme miloshadzic
+antigen theme johannhof/dotfiles themes/johann
 
 # plugins
 antigen bundles <<EOBUNDLES
@@ -13,9 +15,6 @@ antigen bundles <<EOBUNDLES
 
   # Print pictures to the stdout
   catimg
-
-  # Keeps track of the last used directory and automatically jumps to it for new shells.
-  last-working-dir
 
   # https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins#osx
   osx
@@ -51,8 +50,6 @@ antigen bundles <<EOBUNDLES
 EOBUNDLES
 
 antigen apply
-
-DEFAULT_USER=johann
 
 ###### ALIASES #####
 

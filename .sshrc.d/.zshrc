@@ -3,7 +3,7 @@ source $SSHHOME/.sshrc.d/antigen.zsh
 antigen use oh-my-zsh
 
 # theme
-antigen theme pygmalion
+antigen theme johannhof/dotfiles themes/joo
 
 antigen apply
 
