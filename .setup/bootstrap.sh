@@ -69,12 +69,6 @@ elif [ "$LINUX" = true ]; then
     sudo apt-get install zsh
 fi
 
-# install oh-my-zsh
-curl -L http://install.ohmyz.sh | sh
-
-# override default .zshrc
-[[ -s "$HOME/.zshrc.pre-oh-my-zsh" ]] && mv ~/.zshrc.pre-oh-my-zsh ~/.zshrc
-
 # install node version manager
 curl https://raw.githubusercontent.com/creationix/nvm/v0.15.0/install.sh | bash
 
@@ -95,3 +89,6 @@ brew install casperjs --devel
 
 # im/gm
 brew install imagemagick graphicsmagick
+
+# cfx
+brew install mozilla-addon-sdk
