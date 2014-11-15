@@ -90,5 +90,8 @@ brew install elixir
 # install rust
 curl https://static.rust-lang.org/rustup.sh | sudo bash
 
+# casperjs
+brew install casperjs --devel
+
 # im/gm
 brew install imagemagick graphicsmagick

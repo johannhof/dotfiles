@@ -20,3 +20,4 @@ export PATH=$PATH:$(brew --prefix ruby)/bin
 
 export PATH=$PATH:~/bin
 
+export PATH=$PATH:/Applications/Android\ Studio.app/sdk/platform-tools/

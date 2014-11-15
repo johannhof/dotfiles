@@ -117,7 +117,7 @@
 
         " JS
         let g:syntastic_html_checkers = []
-        let g:syntastic_javascript_checkers = ['jslint', 'jsxhint', 'jshint', 'eslint']
+        let g:syntastic_javascript_checkers = ['jslint', 'jshint', 'eslint']
         "let g:syntastic_javascript_jshint_conf = "~/.lint/.jshintrc"
         let g:syntastic_javascript_jshint_args = '--config /Users/johann/.lint/.jshintrc --exclude *.jsx'
         let g:syntastic_javascript_jslint_args = "--white --browser --node --plusplus --unparam --indent 2 --nomen --bitwise --sloppy --vars --maxlen 120 --maxerr 100 --predef $ React Backbone _"
@@ -281,6 +281,7 @@
         Bundle 'tpope/vim-markdown'
         Bundle 'groenewege/vim-less'
         Bundle 'digitaltoad/vim-jade'
+        Bundle 'cespare/vim-toml'
 
     " Erlang
         Bundle 'jimenezrick/vimerl'
