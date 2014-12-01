@@ -117,7 +117,7 @@
 
         " JS
         let g:syntastic_html_checkers = []
-        let g:syntastic_javascript_checkers = ['jslint', 'jshint', 'eslint']
+        let g:syntastic_javascript_checkers = ['jslint', 'eslint']
         "let g:syntastic_javascript_jshint_conf = "~/.lint/.jshintrc"
         let g:syntastic_javascript_jshint_args = '--config /Users/johann/.lint/.jshintrc --exclude *.jsx'
         let g:syntastic_javascript_jslint_args = "--white --browser --node --plusplus --unparam --indent 2 --nomen --bitwise --sloppy --vars --maxlen 120 --maxerr 100 --predef $ React Backbone _"
@@ -292,8 +292,8 @@
     " Clojure
         Bundle 'vim-scripts/paredit.vim'
 
-    " Go
-        Bundle 'jnwhiteh/vim-golang'
-
     " Rust
         Bundle 'wting/rust.vim'
+
+    " Dart
+        Bundle 'dart-lang/dart-vim-plugin'
