@@ -1,4 +1,4 @@
-source .antigen/antigen.zsh
+source $HOME/.antigen/antigen.zsh
 
 DEFAULT_USER=johann
 
