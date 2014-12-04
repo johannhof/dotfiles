@@ -199,6 +199,9 @@
     noremap j gj
     noremap k gk
 
+    " fix pasting
+    vnoremap p  "_dP
+
     " easier registers
     noremap \  "
     nnoremap \|  "_
