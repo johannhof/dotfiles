@@ -64,7 +64,12 @@ alias agi='sudo apt-get install'
 alias agu='sudo apt-get update'
 alias agr='sudo apt-get remove'
 
+# run .exe with mono
+alias -s exe=mono
+
 ## nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+source /usr/local/bin/virtualenvwrapper.sh
 

@@ -297,3 +297,16 @@
 
     " Dart
         Bundle 'dart-lang/dart-vim-plugin'
+
+    " F#
+        Bundle 'kongo2002/fsharp-vim'
+
+    " Julia
+        Bundle 'JuliaLang/julia-vim'
+
+    " Go
+       Bundle 'fatih/vim-go'
+       " disable fmt on save
+       let g:go_fmt_autosave = 0
+       let g:go_fmt_fail_silently = 1
+
