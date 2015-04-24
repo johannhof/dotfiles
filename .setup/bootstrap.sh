@@ -70,10 +70,14 @@ elif [ "$LINUX" = true ]; then
 fi
 
 # install node version manager
-curl https://raw.githubusercontent.com/creationix/nvm/v0.15.0/install.sh | bash
+curl https://raw.githubusercontent.com/creationix/nvm/v0.24.1/install.sh | bash
 
 # install go version manager
 zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+
+# install nvim
+brew tap neovim/homebrew-neovim
+brew install --HEAD neovim
 
 # install erlang
 brew install erlang
@@ -81,8 +85,8 @@ brew install erlang
 # install elixir
 brew install elixir
 
-# install rust
-curl https://static.rust-lang.org/rustup.sh | sudo bash
+# install rust via multirust
+curl -sf https://raw.githubusercontent.com/brson/multirust/master/blastoff.sh | sh
 
 # casperjs
 brew install casperjs --devel

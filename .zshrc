@@ -10,11 +10,7 @@ antigen theme $HOME/.themes/ johann
 # plugins
 antigen bundles <<EOBUNDLES
   brew
-  coffee
   npm
-
-  # Print pictures to the stdout
-  catimg
 
   # https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins#osx
   osx
@@ -28,9 +24,6 @@ antigen bundles <<EOBUNDLES
   # git
   git
   bobthecow/git-flow-completion
-
-  # Guess what to install when running an unknown command.
-  command-not-found
 
   # bookmarking
   jocelynmallon/zshmarks

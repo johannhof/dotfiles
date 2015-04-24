@@ -13,15 +13,6 @@
     Bundle 'gmarik/vundle'
     Bundle 'MarcWeber/vim-addon-mw-utils'
     Bundle 'tomtom/tlib_vim'
-    if executable('ack-grep')
-        let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-        Bundle 'mileszs/ack.vim'
-    elseif executable('ack')
-        Bundle 'mileszs/ack.vim'
-    elseif executable('ag')
-        Bundle 'mileszs/ack.vim'
-        let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
-    endif
 
 " General
 
@@ -31,12 +22,10 @@
         autocmd vimenter * if !argc() | NERDTree | endif
 
         map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
-        map <leader>e :NERDTreeFind<CR>
-        nmap <leader>nt :NERDTreeFind<CR>
 
-        let NERDTreeShowBookmarks=1
+        let NERDTreeShowBookmarks=0
         let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.DS_Store']
-        let NERDTreeChDirMode=0
+        let NERDTreeChDirMode=1
         let NERDChristmasTree = 1
         let NERDTreeQuitOnOpen=0
         let NERDTreeMouseMode=2
@@ -75,7 +64,10 @@
 
     Bundle 'nathanaelkane/vim-indent-guides'
     " indent_guides
-        let g:indent_guides_auto_colors = 1
+        "let g:indent_guides_auto_colors = 1
+        let g:indent_guides_auto_colors = 0
+        autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
+        autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=237
         let g:indent_guides_start_level = 2
         let g:indent_guides_guide_size = 1
         let g:indent_guides_enable_on_vim_startup = 1
@@ -86,12 +78,15 @@
         au FileType xhtml,xml ru ftplugin/html/autoclosetag.vim
         nmap <Leader>ac <Plug>ToggleAutoCloseMappings
 
-    Bundle 'vim-scripts/sessionman.vim'
+    Bundle 'xolox/vim-session'
     " Session List
         set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
-        nmap <leader>sl :SessionList<CR>
-        nmap <leader>ss :SessionSave<CR>
+        nmap <leader>ss :SaveSession!<CR>
+        nmap <leader>os :OpenSession!<CR>
 
+    Bundle 'mileszs/ack.vim'
+        let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
+        nmap <leader>ag :Ack! 
 
     Bundle 'altercation/vim-colors-solarized'
     Bundle 'spf13/vim-colors'
@@ -107,6 +102,8 @@
     Bundle 'myusuf3/numbers.vim'
     Bundle 'vim-scripts/restore_view.vim'
     Bundle 'tpope/vim-abolish.git'
+    Bundle 'xolox/vim-misc'
+    Bundle 'xolox/vim-colorscheme-switcher'
 
     " Syntastic
     Bundle 'scrooloose/syntastic'

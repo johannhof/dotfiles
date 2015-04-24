@@ -42,7 +42,7 @@
     set mouse=a                 " Automatically enable mouse usage
     set mousehide               " Hide the mouse cursor while typing
     set nospell
-    scriptencoding utf-8
+    set encoding=utf-8
 
     if has ('x') && has ('gui') " On Linux use + register for copy-paste
         set clipboard=unnamedplus
@@ -57,7 +57,7 @@
     augroup END " }
 
     " Always switch to the current file directory when a new buffer is opened
-    autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
+    "autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 
     "set autowrite                       " Automatically write a file when leaving a modified buffer
     set shortmess+=filmnrxoOtTA          " Abbrev. of messages (avoids 'hit enter')
@@ -101,7 +101,7 @@
 " }
 
 " Vim UI {
-    colorscheme Tomorrow-Night
+    colorscheme hybrid
 
     set tabpagemax=15               " Only show 15 tabs
     set showmode                    " Display the current mode
@@ -180,9 +180,6 @@
     autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
     " preceding line best in a plugin but here for now.
 
-    autocmd BufNewFile,BufRead *.coffee set filetype=coffee
-    autocmd BufNewFile,BufRead *.cjsx set filetype=coffee
-
     " Workaround vim-commentary for Haskell
     autocmd FileType haskell setlocal commentstring=--\ %s
     " Workaround broken colour highlighting in Haskell
@@ -190,11 +187,15 @@
 
     " Syntax mapping for unknown file types
     autocmd BufNewFile,BufRead *.eex   set syntax=html
+    autocmd BufNewFile,BufRead *.coffee set filetype=coffee
+    autocmd BufNewFile,BufRead *.cjsx set filetype=coffee
 
 " }
 
 " Key (re)Mappings {
 
+    " Show nvim terminal
+    nmap <leader>t :vsplit! \| :term<CR>
 
     " Wrapped lines goes down/up to next row, rather than next line in file.
     noremap j gj
@@ -242,11 +243,6 @@
 
     " Find merge conflict markers
     map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
-
-    " Shortcuts
-    " Change Working Directory to that of the current file
-    cmap cwd lcd %:p:h
-    cmap cd. lcd %:p:h
 
     " replace visual selection
     vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
@@ -381,29 +377,6 @@
         let @/=_s
         call cursor(l, c)
     endfunction
-    " }
-
-    " Shell command {
-    function! s:RunShellCommand(cmdline)
-        botright new
-
-        setlocal buftype=nofile
-        setlocal bufhidden=delete
-        setlocal nobuflisted
-        setlocal noswapfile
-        setlocal nowrap
-        setlocal filetype=shell
-        setlocal syntax=shell
-
-        call setline(1, a:cmdline)
-        call setline(2, substitute(a:cmdline, '.', '=', 'g'))
-        execute 'silent $read !' . escape(a:cmdline, '%#')
-        setlocal nomodifiable
-        1
-    endfunction
-
-    command! -complete=file -nargs=+ Shell call s:RunShellCommand(<q-args>)
-    " e.g. Grep current file for <search_term>: Shell grep -Hn <search_term> %
     " }
 
 " }
