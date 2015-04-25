@@ -110,11 +110,12 @@
         let g:syntastic_aggregate_errors = 1
 
         " Coffeescript
-        let g:syntastic_coffee_coffeelint_args="--csv --file /Users/johann/.lint/coffeelint.json"
+        let g:syntastic_coffee_coffeelint_args="--csv --file ~/.lint/coffeelint.json"
 
         " JS
         let g:syntastic_html_checkers = []
         let g:syntastic_javascript_checkers = ['eslint']
+        let g:syntastic_javascript_eslint_args = "-c ~/.lint/eslint.json"
 
         " C++
         let g:syntastic_cpp_compiler = 'clang++'

@@ -1,0 +1,19 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "ecmaFeatures": {
+    "jsx": true
+  },
+  "rules": {
+    "comma-dangle": [1, "never"],
+    "quotes": [1, "double", "avoid-escape"],
+    "guard-for-in": 1,
+    "wrap-iife": [2, "any"],
+    "radix": 2,
+    "no-throw-literal": 1,
+    "strict": 0,
+    "max-len": 120
+  }
+}

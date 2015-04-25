@@ -197,6 +197,10 @@
     " Show nvim terminal
     nmap <leader>t :vsplit! \| :term<CR>
 
+    " Resize split windows
+    nmap <leader>+ :vertical resize +15<CR>
+    nmap <leader>- :vertical resize -15<CR>
+
     " Wrapped lines goes down/up to next row, rather than next line in file.
     noremap j gj
     noremap k gk
