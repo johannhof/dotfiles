@@ -209,8 +209,8 @@
     vnoremap p  "_dP
 
     " easier registers
-    noremap \  "
-    nnoremap \|  "_
+    noremap §  "
+    nnoremap ±  "_
 
     " Map <C-L> (redraw screen) to also turn off search highlighting until the
     " next search
