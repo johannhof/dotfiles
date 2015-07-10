@@ -247,25 +247,7 @@
     " Javascript
         Bundle 'elzr/vim-json'
         Bundle 'pangloss/vim-javascript'
-        Bundle 'briancollins/vim-jst'
         Bundle 'kchmck/vim-coffee-script'
-
-        " JS Beautify
-        Bundle 'maksimr/vim-jsbeautify'
-        Bundle 'einars/js-beautify'
-          " use autoindent by default
-          map <c-f> gg=G
-
-          " use js-beautify for js files
-          autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-          " for html
-          autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-          " for css or scss
-          autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
-
-          autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
-          autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
-          autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
     " Markup & CSS
         Bundle 'amirh/HTML-AutoCloseTag'

@@ -1,3 +1,5 @@
+export LANG=en_US.UTF-8
+
 ##### PATH #####
 
 export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/opt/ruby/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin"

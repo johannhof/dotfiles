@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # build tools
-npm install -g gulp grunt-cli bower
+npm install -g gulp grunt-cli bower webpack webpack-dev-server
 
 # utilities
 npm install -g node-inspector node-dev
@@ -13,7 +13,7 @@ npm install -g coffee-script browserify express less jade stylus
 npm install -g mocha jest-cli jasmine
 
 # linters
-npm install -g eslint coffeelint
+npm install -g eslint coffeelint eslint-plugin-react
 
 # nodeschool
 npm install -g learnyounode stream-adventure
