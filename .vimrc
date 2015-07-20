@@ -231,8 +231,8 @@
 
     cmap Tabe tabe
 
-    " Yank from the cursor to the end of the line, to be consistent with C and D.
-    nnoremap Y y$
+    " Yank to + register with Y
+    vnoremap Y "+y
 
     " Most prefer to toggle search highlighting rather than clear the current
     " search results.

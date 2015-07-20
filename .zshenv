@@ -23,6 +23,9 @@ export PATH=$PATH:$(brew --prefix ruby)/bin
 # Julia
 export PATH=$PATH:/Applications/Julia-0.3.5.app/Contents/Resources/julia/bin/
 
+# Postgres for Mac
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
+
 export PATH=$PATH:~/bin
 
 export PATH=$PATH:/Applications/Android\ Studio.app/sdk/platform-tools/
