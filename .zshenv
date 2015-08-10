@@ -33,3 +33,6 @@ export PATH=$PATH:/Applications/Android\ Studio.app/sdk/platform-tools/
 export MONO_GAC_PREFIX="/usr/local"
 
 export RUST_SRC_PATH="/Users/johann/Development/Projects/rust/src/"
+
+export CHEF_REPO_DIR=~/Development/zenguard/chef/
+
