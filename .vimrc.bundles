@@ -252,11 +252,11 @@
         Bundle 'gorodinskiy/vim-coloresque'
         Bundle 'groenewege/vim-less'
         Bundle 'wavded/vim-stylus'
+        Plugin 'cakebaker/scss-syntax.vim'
 
     " Markup
         Bundle 'amirh/HTML-AutoCloseTag'
         Bundle 'tpope/vim-haml'
-        Bundle 'tpope/vim-markdown'
         Bundle 'digitaltoad/vim-jade'
         Bundle 'cespare/vim-toml'
 

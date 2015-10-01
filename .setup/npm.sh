@@ -10,7 +10,7 @@ npm install -g node-inspector node-dev
 npm install -g coffee-script browserify express less jade stylus
 
 # testing
-npm install -g mocha jest-cli jasmine
+npm install -g mocha jest-cli jasmine karma-cli testem
 
 # linters
 npm install -g eslint coffeelint eslint-plugin-react

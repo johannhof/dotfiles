@@ -79,6 +79,9 @@ zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binsc
 brew tap neovim/homebrew-neovim
 brew install --HEAD neovim
 
+# install AWS CLI
+pip install awscli
+
 # install erlang
 brew install erlang
 
