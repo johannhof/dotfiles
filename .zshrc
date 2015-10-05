@@ -18,12 +18,6 @@ antigen bundles <<EOBUNDLES
   # bookmarking
   jocelynmallon/zshmarks
 
-  # Helper for extracting different types of archives.
-  extract
-
-  # nicoulaj's moar completion files for zsh
-  zsh-users/zsh-completions src
-
   # ZSH port of Fish shell's history search feature.
   zsh-users/zsh-history-substring-search
 
