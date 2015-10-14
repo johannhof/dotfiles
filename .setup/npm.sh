@@ -4,7 +4,7 @@
 npm install -g gulp grunt-cli bower webpack webpack-dev-server
 
 # utilities
-npm install -g node-inspector node-dev
+npm install -g node-inspector node-dev git-open
 
 # compilers
 npm install -g coffee-script browserify express less jade stylus

@@ -36,3 +36,4 @@ export RUST_SRC_PATH="/Users/johann/Development/Projects/rust/src/"
 
 export CHEF_REPO_DIR=~/Development/zenguard/chef/
 
+export ZM_LINT=~/Development/zenguard/js/
