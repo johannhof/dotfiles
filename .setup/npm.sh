@@ -4,7 +4,7 @@
 npm install -g gulp grunt-cli bower webpack webpack-dev-server
 
 # utilities
-npm install -g node-inspector node-dev git-open
+npm install -g node-inspector node-dev git-open js-beautify
 
 # compilers
 npm install -g coffee-script browserify express less jade stylus
@@ -13,7 +13,7 @@ npm install -g coffee-script browserify express less jade stylus
 npm install -g mocha jest-cli jasmine karma-cli testem
 
 # linters
-npm install -g eslint coffeelint eslint-plugin-react
+npm install -g eslint eslint_d coffeelint eslint-plugin-react coffee-react-transform
 
 # nodeschool
 npm install -g learnyounode stream-adventure

@@ -57,10 +57,9 @@ if [ "$LINUX" = true ]; then
     sudo apt-get install vim
 fi
 
-# install vundle
-if [ ! -d "~/.vim/bundle/vundle" ]; then
-  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-fi
+# install vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # install zsh
 if [ "$OSX" = true ]; then
@@ -70,7 +69,7 @@ elif [ "$LINUX" = true ]; then
 fi
 
 # install node version manager
-curl https://raw.githubusercontent.com/creationix/nvm/v0.24.1/install.sh | bash
+curl https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
 
 # install go version manager
 zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
@@ -78,6 +77,12 @@ zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binsc
 # install nvim
 brew tap neovim/homebrew-neovim
 brew install --HEAD neovim
+
+# install macvim
+brew install --HEAD macvim
+
+# install linting tools
+brew install tidy-html5
 
 # install AWS CLI
 pip install awscli
@@ -87,6 +92,9 @@ brew install erlang
 
 # install elixir
 brew install elixir
+
+# smart cows
+brew install fortune cowsay
 
 # install rust via multirust
 curl -sf https://raw.githubusercontent.com/brson/multirust/master/blastoff.sh | sh

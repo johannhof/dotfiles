@@ -4,9 +4,6 @@ export LANG=en_US.UTF-8
 
 export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/opt/ruby/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin"
 
-# NVM
-export PATH=$PATH:$HOME/.nvm/current/bin
-
 # GOPATH
 export GOPATH=~/Development/go
 export PATH=$PATH:$GOPATH/bin
@@ -37,3 +34,6 @@ export RUST_SRC_PATH="/Users/johann/Development/Projects/rust/src/"
 export CHEF_REPO_DIR=~/Development/zenguard/chef/
 
 export ZM_LINT=~/Development/zenguard/js/
+
+# even faster typing
+export KEYTIMEOUT=1

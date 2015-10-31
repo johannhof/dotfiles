@@ -70,5 +70,8 @@
     },
     "coffeescript_error": {
         "level": "error"
+    },
+    "coffeelint": {
+        "transforms": [ "coffee-react-transform" ]
     }
 }

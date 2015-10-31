@@ -1,4 +1,5 @@
 {
+  "extends": "eslint:recommended",
   "env": {
     "browser": true,
     "node": true,
@@ -25,6 +26,9 @@
     "no-underscore-dangle": 0,
     "strict": 0,
     "max-len": [1,120],
+    "semi": [2, "always"],
+    "no-debugger": 2,
+    "no-console": 1,
 
     "react/display-name": 1,
     "react/jsx-no-undef": 1,
