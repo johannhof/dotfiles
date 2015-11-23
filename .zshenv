@@ -20,6 +20,11 @@ export PATH=$PATH:$(brew --prefix ruby)/bin
 # Julia
 export PATH=$PATH:/Applications/Julia-0.3.5.app/Contents/Resources/julia/bin
 
+# Rust binaries
+export PATH=$PATH:~/.multirust/toolchains/nightly/cargo/bin
+export PATH=$PATH:~/.multirust/toolchains/beta/cargo/bin
+export PATH=$PATH:~/.multirust/toolchains/stable/cargo/bin
+
 # Postgres for Mac
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 

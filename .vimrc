@@ -16,7 +16,10 @@
 " - Racer doesn't work with YCM yet
 " - Improve Tern support
 " - Improve CSS/HTML linting and formatting
-" - Integrate Rustfmt
+" - Unicode emoji seem to be broken on my machine
+" - HTML/JSX tag autoclosing
+" - cwd is behaving weirdly with tabs and not autoupdated on buffer change
+" - NERDTRee stays open when closing main window
 
 """""""""""""""""""
 "     GENERAL     "
@@ -180,7 +183,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'kshenoy/vim-signature'
 
   " autoclose brackets
-  Plug 'Townk/vim-autoclose'
+  Plug 'jiangmiao/auto-pairs'
 
   " extended % matching
   Plug 'tmhedberg/matchit'
@@ -413,6 +416,19 @@ call plug#end()
   noremap   <Left>   <C-w><C-h>
   noremap   <Right>  <C-w><C-l>
 
+  " MacVim only: map CMD + num to trigger tabs
+  noremap <D-1> 1gt
+  noremap <D-2> 2gt
+  noremap <D-3> 3gt
+  noremap <D-4> 4gt
+  noremap <D-5> 5gt
+  noremap <D-6> 6gt
+  noremap <D-7> 7gt
+  noremap <D-8> 8gt
+
+  noremap <D-Left> gT
+  noremap <D-Right> gt
+
   " Visual shifting (does not exit Visual mode)
   vnoremap < <gv
   vnoremap > >gv
@@ -425,6 +441,10 @@ call plug#end()
 
   " Yank to + register with Y
   vnoremap Y "+y
+
+  " Wrapped lines goes down/up to next row, rather than next line in file.
+  noremap j gj
+  noremap k gk
 
   " easier noop register
   noremap §  "_
