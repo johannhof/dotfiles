@@ -19,7 +19,6 @@
 " - Unicode emoji seem to be broken on my machine
 " - HTML/JSX tag autoclosing
 " - cwd is behaving weirdly with tabs and not autoupdated on buffer change
-" - NERDTRee stays open when closing main window
 
 """""""""""""""""""
 "     GENERAL     "
@@ -99,6 +98,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree'
     " auto start nerdtree and startify
     autocmd vimenter * if !argc() | Startify | NERDTree | wincmd w | endif
+
+    " Auto close if only window is NERDTree
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
     let NERDTreeShowBookmarks=0
     let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.DS_Store']
