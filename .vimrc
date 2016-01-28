@@ -13,12 +13,12 @@
 """""""""""""""""""
 
 " - NERDTree opens a new file in hsplit when Startify is on
-" - Racer doesn't work with YCM yet
 " - Improve Tern support
 " - Improve CSS/HTML linting and formatting
 " - Unicode emoji seem to be broken on my machine
 " - HTML/JSX tag autoclosing
 " - cwd is behaving weirdly with tabs and not autoupdated on buffer change
+" - Flow support is broken
 
 """""""""""""""""""
 "     GENERAL     "
@@ -225,7 +225,7 @@ call plug#begin('~/.vim/plugged')
     let g:syntastic_html_checkers = ['tidy']
 
     " JS
-    let g:syntastic_javascript_checkers = ['eslint', 'flow']
+    let g:syntastic_javascript_checkers = ['eslint']
     let g:syntastic_javascript_eslint_exec = 'eslint_d'
     let g:syntastic_javascript_eslint_args = "-c ~/.lint/eslint.json"
 
@@ -268,6 +268,9 @@ call plug#begin('~/.vim/plugged')
     " Rust
         Plug 'wting/rust.vim', { 'for': 'rust' }
 
+    " Rust
+        Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
+
     " Dart
         Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
 
@@ -284,17 +287,12 @@ call plug#begin('~/.vim/plugged')
        let g:go_fmt_fail_silently = 1
 
   " Autocompletion
-  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer' }
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer --racer-completer' }
     set completeopt-=preview
+    let g:ycm_rust_src_path = '/Users/johann/Development/Projects/rust/src/'
 
   " Tern for JS
   Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-
-  " Racer for Rust
-  Plug 'racer-rust/vim-racer'
-  set hidden
-  let g:racer_cmd = "~/Development/Projects/racer/target/release/racer"
-  let $RUST_SRC_PATH="/Users/johann/Development/Projects/rust/src/"
 
 call plug#end()
 
