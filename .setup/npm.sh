@@ -13,7 +13,7 @@ npm install -g coffee-script browserify express less jade stylus
 npm install -g mocha jest-cli jasmine karma-cli testem
 
 # linters
-npm install -g eslint eslint_d coffeelint eslint-plugin-react coffee-react-transform babel-eslint
+npm install -g eslint eslint_d coffeelint eslint-plugin-react coffee-react-transform babel-eslint eslint-plugin-mozilla eslint-plugin-html
 
 # nodeschool
 npm install -g learnyounode stream-adventure
