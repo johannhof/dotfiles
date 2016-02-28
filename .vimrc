@@ -73,6 +73,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'xolox/vim-session'
     " Disable all session locking
     let g:session_lock_enabled = 0
+    let g:session_autoload = 'no'
 
     map <Leader>ss :SaveSession 
     map <Leader>sc :CloseSession<CR>:Startify<CR>
@@ -300,9 +301,12 @@ call plug#end()
 "  LOOK AND FEEL  "
 """""""""""""""""""
 
+  " Fix Linux Terminal Issues
+  set t_Co=256
+
   set background=dark
-  syntax on
   colorscheme hybrid
+  syntax on
 
   " better syntastic highlight colors
   highlight SyntasticErrorSign guifg=#ff0000 guibg=NONE
@@ -310,9 +314,6 @@ call plug#end()
 
   " clear small side column for compat with colorscheme
   highlight clear SignColumn
-
-  " Fix Linux Terminal Issues
-  set t_Co=256
 
   " Font to use
   set guifont=Inconsolata-dz\ for\ Powerline:h12
@@ -350,13 +351,15 @@ call plug#end()
   set backspace=indent,eol,start
 
   " Highlight current line
-  set cursorline
+  " set cursorline
 
   " don't ask for saving when switching buffers
   set hidden
 
   " seems to make things faster on terminals
   set ttyfast
+  "set lazyredraw
+  set re=1
 
   " Minimum lines to keep above and below cursor
   set scrolloff=7

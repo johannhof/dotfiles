@@ -32,11 +32,7 @@ export PATH=$PATH:/Applications/Android\ Studio.app/sdk/platform-tools
 
 export MONO_GAC_PREFIX="/usr/local"
 
-export RUST_SRC_PATH="/Users/johann/Development/Projects/rust/src/"
-
-export CHEF_REPO_DIR=~/Development/zenguard/chef/
-
-export ZM_LINT=~/Development/zenguard/js/
+export RUST_SRC_PATH="$HOME/Development/rust/src/"
 
 # even faster typing
 export KEYTIMEOUT=1

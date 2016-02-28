@@ -71,9 +71,6 @@ fi
 # install node version manager
 curl https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
 
-# install go version manager
-zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
-
 # install nvim
 brew tap neovim/homebrew-neovim
 brew install --HEAD neovim
@@ -105,5 +102,5 @@ brew install casperjs --devel
 # im/gm
 brew install imagemagick graphicsmagick
 
-# cfx
-brew install mozilla-addon-sdk
+# install ag
+brew install ag
