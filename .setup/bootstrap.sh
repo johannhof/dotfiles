@@ -27,10 +27,10 @@ fi
 
 # install homebrew
 if [ "$OSX" = true ]; then
-    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 elif [ "$LINUX" = true ]; then
     sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev
-    ruby -e "$(wget -O- https://raw.github.com/Homebrew/linuxbrew/go/install)"
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/linuxbrew/go/install)"
 fi
 
 # install wget
@@ -92,6 +92,9 @@ brew install elixir
 
 # smart cows
 brew install fortune cowsay
+
+# sshrc
+brew install sshrc
 
 # install rust via multirust
 curl -sf https://raw.githubusercontent.com/brson/multirust/master/blastoff.sh | sh
