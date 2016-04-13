@@ -4,7 +4,7 @@
 npm install -g gulp grunt-cli bower webpack webpack-dev-server react-native-cli
 
 # utilities
-npm install -g node-inspector node-dev git-open js-beautify
+npm install -g node-inspector node-dev git-open js-beautify rnpm
 
 # compilers
 npm install -g coffee-script browserify express less jade stylus

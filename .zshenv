@@ -34,5 +34,8 @@ export MONO_GAC_PREFIX="/usr/local"
 
 export RUST_SRC_PATH="$HOME/Development/rust/src/"
 
+# git-cinnabar for hg
+export PATH=$PATH:~/Development/git-cinnabar
+
 # even faster typing
 export KEYTIMEOUT=1

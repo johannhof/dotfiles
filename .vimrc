@@ -12,7 +12,6 @@
 "      TODO       "
 """""""""""""""""""
 
-" - NERDTree opens a new file in hsplit when Startify is on
 " - Improve Tern support
 " - Improve CSS/HTML linting and formatting
 " - Unicode emoji seem to be broken on my machine
@@ -76,29 +75,14 @@ call plug#begin('~/.vim/plugged')
     let g:session_autoload = 'no'
 
     map <Leader>ss :SaveSession 
-    map <Leader>sc :CloseSession<CR>:Startify<CR>
+    map <Leader>sc :CloseSession<CR>
     map <Leader>so :OpenSession 
     map <Leader>sd :DeleteSession 
 
-  " better start screen
-  Plug 'mhinz/vim-startify'
-    let g:startify_bookmarks = [ '~/.vimrc', '~/.zshrc' ]
-    let g:startify_session_dir = '~/.vim/sessions'
-    let g:startify_list_order = [
-            \ ['   Sessions:'],
-            \ 'sessions',
-            \ ['   Bookmarks:'],
-            \ 'bookmarks',
-            \ ['   Recently used:'],
-            \ 'files',
-            \ ]
-    let g:startify_custom_header =
-          \ map(split(system('fortune | cowthink -f tux'), '\n'), '"   ". v:val') + ['']
-
   " NerdTree
   Plug 'scrooloose/nerdtree'
-    " auto start nerdtree and startify
-    autocmd vimenter * if !argc() | Startify | NERDTree | wincmd w | endif
+    " auto start nerdtree
+    autocmd vimenter * if !argc() | NERDTree | wincmd w | endif
 
     " Auto close if only window is NERDTree
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
