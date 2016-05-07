@@ -73,6 +73,7 @@ call plug#begin('~/.vim/plugged')
     " Disable all session locking
     let g:session_lock_enabled = 0
     let g:session_autoload = 'no'
+    let g:session_autosave = 'no'
 
     map <Leader>ss :SaveSession 
     map <Leader>sc :CloseSession<CR>
@@ -210,9 +211,9 @@ call plug#begin('~/.vim/plugged')
     let g:syntastic_html_checkers = ['tidy']
 
     " JS
-    let g:syntastic_javascript_checkers = ['eslint']
-    let g:syntastic_javascript_eslint_exec = 'eslint_d'
-    let g:syntastic_javascript_eslint_args = "-c ~/.lint/eslint.json"
+    Plug 'mtscout6/syntastic-local-eslint.vim'
+    let g:syntastic_javascript_checkers = ['eslint', 'flow']
+    let g:syntastic_javascript_flow_exe = 'flow status'
 
     " C++
     let g:syntastic_cpp_compiler = 'clang++'
