@@ -275,7 +275,7 @@ call plug#begin('~/.vim/plugged')
   " Autocompletion
   Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer --racer-completer' }
     set completeopt-=preview
-    let g:ycm_rust_src_path = '/Users/johann/Development/Projects/rust/src/'
+    let g:ycm_rust_src_path = '/Users/johann/Development/rust/src/'
 
   " Tern for JS
   Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
@@ -301,7 +301,7 @@ call plug#end()
   highlight clear SignColumn
 
   " Font to use
-  set guifont=Inconsolata-dz\ for\ Powerline:h12
+  set guifont=Fira\ Mono\ for\ Powerline:h12
 
   " Disable cursor blink
   set gcr=a:blinkon0
