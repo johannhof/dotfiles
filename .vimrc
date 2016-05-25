@@ -17,7 +17,7 @@
 " - Unicode emoji seem to be broken on my machine
 " - HTML/JSX tag autoclosing
 " - cwd is behaving weirdly with tabs and not autoupdated on buffer change
-" - Flow support is broken
+" - Flow server needs to be started manually
 
 """""""""""""""""""
 "     GENERAL     "
@@ -86,7 +86,7 @@ call plug#begin('~/.vim/plugged')
     autocmd vimenter * if !argc() | NERDTree | wincmd w | endif
 
     " Auto close if only window is NERDTree
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
     let NERDTreeShowBookmarks=0
     let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.DS_Store']
@@ -276,6 +276,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer --racer-completer' }
     set completeopt-=preview
     let g:ycm_rust_src_path = '/Users/johann/Development/rust/src/'
+    nmap <leader>g :YcmCompleter GoTo<CR>
 
   " Tern for JS
   Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
@@ -404,18 +405,19 @@ call plug#end()
   noremap   <Left>   <C-w><C-h>
   noremap   <Right>  <C-w><C-l>
 
-  " MacVim only: map CMD + num to trigger tabs
-  noremap <D-1> 1gt
-  noremap <D-2> 2gt
-  noremap <D-3> 3gt
-  noremap <D-4> 4gt
-  noremap <D-5> 5gt
-  noremap <D-6> 6gt
-  noremap <D-7> 7gt
-  noremap <D-8> 8gt
+  " create new tab easily
+  nnoremap <Leader>t :tabnew<CR>
 
-  noremap <D-Left> gT
-  noremap <D-Right> gt
+  " MacVim only: map CMD + num to trigger tabs
+  nnoremap <silent> <Leader>1    1gt
+  nnoremap <silent> <Leader>2    2gt
+  nnoremap <silent> <Leader>3    3gt
+  nnoremap <silent> <Leader>4    4gt
+  nnoremap <silent> <Leader>5    5gt
+  nnoremap <silent> <Leader>6    6gt
+  nnoremap <silent> <Leader>7    7gt
+  nnoremap <silent> <Leader>8    8gt
+  nnoremap <silent> <Leader>9    :tablast<CR>
 
   " Visual shifting (does not exit Visual mode)
   vnoremap < <gv
