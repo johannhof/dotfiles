@@ -1,6 +1,7 @@
 [user]
   name = Johann
   email = git@johann-hofmann.com
+	signingkey = 56C9CC16
 
 [core]
   editor = vim
@@ -17,3 +18,5 @@
   default = simple
 [url "git@github.com:"]
   insteadOf = https://github.com/
+[commit]
+	gpgsign = true
