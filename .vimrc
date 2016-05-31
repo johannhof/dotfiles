@@ -130,8 +130,6 @@ call plug#begin('~/.vim/plugged')
   " Autoformat using different tools
   Plug 'Chiel92/vim-autoformat', { 'on': 'Autoformat' }
     nmap <Leader>f :Autoformat<CR>
-    let g:formatdef_jscs = '"jscs -x -c ~/.lint/jscs.json"'
-    let g:formatters_javascript = ['jscs']
 
   " search with ag/ack inside vim
   Plug 'mileszs/ack.vim', { 'on': 'Ack' }
