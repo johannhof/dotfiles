@@ -112,20 +112,17 @@ call plug#begin('~/.vim/plugged')
 
   " better looking statusline
   Plug 'bling/vim-airline'
-    if !exists('g:airline_symbols')
-        let g:airline_symbols = {}
-    endif
-
-    let g:airline_powerline_fonts=1
+    let g:airline_powerline_fonts=0
 
     " old vim-powerline symbols
-    let g:airline_left_sep = '⮀'
-    let g:airline_left_alt_sep = '⮁'
-    let g:airline_right_sep = '⮂'
-    let g:airline_right_alt_sep = '⮃'
-    let g:airline_symbols.branch = '⭠'
-    let g:airline_symbols.readonly = '⭤'
-    let g:airline_symbols.linenr = '⭡'
+    let g:airline_left_sep = ''
+    let g:airline_left_alt_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline_right_alt_sep = ''
+
+    let g:airline_section_c = '%t'
+    let g:airline_section_x = ' '
+    let g:airline_section_y = '%{pathshorten(getcwd())}'
 
   " Autoformat using different tools
   Plug 'Chiel92/vim-autoformat', { 'on': 'Autoformat' }
