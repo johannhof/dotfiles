@@ -12,7 +12,6 @@
 "      TODO       "
 """""""""""""""""""
 
-" - Improve Tern support
 " - Improve CSS/HTML linting and formatting
 " - Unicode emoji seem to be broken on my machine
 " - HTML/JSX tag autoclosing
@@ -139,6 +138,9 @@ call plug#begin('~/.vim/plugged')
   " Display git infos inside vim
   Plug 'tpope/vim-fugitive'
 
+  " Display mercurial infos inside vim
+  Plug 'jlfwong/vim-mercenary'
+
   " Easy commenting
   Plug 'scrooloose/nerdcommenter'
 
@@ -157,10 +159,12 @@ call plug#begin('~/.vim/plugged')
     nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
     vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 
-  " display git diff info on the side of a file
-  Plug 'airblade/vim-gitgutter'
-      " https://github.com/airblade/vim-gitgutter/issues/106
-      let g:gitgutter_realtime = 0
+  " display git and hg diff info on the side of a file
+  Plug 'mhinz/vim-signify'
+  let g:signify_vcs_list = [ 'hg', 'git' ]
+  let g:signify_sign_change = '~'
+  let g:signify_sign_delete = '-'
+  let g:signify_sign_show_count = 0
 
   " useful for working with marks
   Plug 'kshenoy/vim-signature'
@@ -272,6 +276,7 @@ call plug#begin('~/.vim/plugged')
     set completeopt-=preview
     let g:ycm_rust_src_path = '/Users/johann/Development/rust/src/'
     nmap <leader>g :YcmCompleter GoTo<CR>
+    let g:ycm_confirm_extra_conf = 0
 
   " Tern for JS
   Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
@@ -292,6 +297,10 @@ call plug#end()
   " better syntastic highlight colors
   highlight SyntasticErrorSign guifg=#ff0000 guibg=NONE
   highlight SyntasticStyleWarningSign guifg=#ffff00 guibg=NONE
+
+  highlight SignifySignAdd    cterm=bold ctermbg=none  ctermfg=119
+  highlight SignifySignDelete cterm=bold ctermbg=none  ctermfg=167
+  highlight SignifySignChange cterm=bold ctermbg=none  ctermfg=227
 
   " clear small side column for compat with colorscheme
   highlight clear SignColumn
@@ -403,7 +412,7 @@ call plug#end()
   " create new tab easily
   nnoremap <Leader>t :tabnew<CR>
 
-  " MacVim only: map CMD + num to trigger tabs
+  " map leader + num to switch tabs
   nnoremap <silent> <Leader>1    1gt
   nnoremap <silent> <Leader>2    2gt
   nnoremap <silent> <Leader>3    3gt
