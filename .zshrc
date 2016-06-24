@@ -15,6 +15,9 @@ antigen bundles <<EOBUNDLES
   # git
   git
 
+  # mercurial
+  mercurial
+
   # bookmarking
   jocelynmallon/zshmarks
 
@@ -44,6 +47,8 @@ alias agr='sudo apt-get remove'
 ## rust
 alias ct='cargo test'
 alias cr='cargo run'
+
+alias hgw='hg wip'
 
 # run .exe with mono
 alias -s exe=mono
