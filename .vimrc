@@ -58,6 +58,11 @@
   set ssop-=folds
   set ssop+=tabpages
 
+  " Use whole "words" when opening URLs.
+  " This avoids cutting off parameters (after '?') and anchors (after '#'). 
+  " See http://vi.stackexchange.com/q/2801/1631
+  let g:netrw_gx="<cWORD>"
+
 """""""""""""""""""
 "     PLUGINS     "
 """""""""""""""""""
@@ -165,6 +170,7 @@ call plug#begin('~/.vim/plugged')
   let g:signify_sign_change = '~'
   let g:signify_sign_delete = '-'
   let g:signify_sign_show_count = 0
+  let g:signify_update_on_focusgained = 1
 
   " useful for working with marks
   Plug 'kshenoy/vim-signature'
