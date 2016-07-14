@@ -130,7 +130,18 @@ call plug#begin('~/.vim/plugged')
 
   " Autoformat using different tools
   Plug 'Chiel92/vim-autoformat', { 'on': 'Autoformat' }
-    nmap <Leader>f :Autoformat<CR>
+    map <Leader>f :CustomFmt<CR>
+
+  function! CustomFormat()
+    if &filetype == 'elm'
+      ElmFormat
+    elseif &filetype == 'rust'
+      RustFmt
+    else
+      Autoformat()
+    endif
+  endfunction
+  command CustomFmt :call CustomFormat()
 
   " search with ag/ack inside vim
   Plug 'mileszs/ack.vim', { 'on': 'Ack' }
@@ -226,11 +237,14 @@ call plug#begin('~/.vim/plugged')
     " Go
     let g:syntastic_go_checkers = ['go', 'golint']
 
+    " Elm
+    let g:elm_syntastic_show_warnings = 1
+
   " Programming Languages
 
     " Javascript
         Plug 'elzr/vim-json', { 'for': 'json' }
-        Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+        Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'xhtml', 'html'] }
         Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
         autocmd BufNewFile,BufRead *.jsx set filetype=javascript
         autocmd BufNewFile,BufRead *.cjsx set filetype=coffee
@@ -257,10 +271,11 @@ call plug#begin('~/.vim/plugged')
         Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
 
     " Rust
-        Plug 'wting/rust.vim', { 'for': 'rust' }
+        Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
     " Rust
-        Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
+        Plug 'elmcast/elm-vim', { 'for': 'elm' }
+        let g:elm_setup_keybindings = 0
 
     " Dart
         Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }

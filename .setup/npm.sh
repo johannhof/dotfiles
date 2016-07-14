@@ -17,3 +17,6 @@ npm install -g eslint eslint_d coffeelint eslint-plugin-react coffee-react-trans
 
 # nodeschool
 npm install -g learnyounode stream-adventure
+
+# elm
+npm install -g elm elm-test elm-oracle
