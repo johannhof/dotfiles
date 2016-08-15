@@ -48,7 +48,7 @@ alias agr='sudo apt-get remove'
 alias ct='cargo test'
 alias cr='cargo run'
 
-alias hgw='hg wip'
+alias wip='hg wip'
 
 # run .exe with mono
 alias -s exe=mono
