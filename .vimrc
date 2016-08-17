@@ -40,6 +40,9 @@
   " correct encoding
   set encoding=utf-8
 
+  set timeoutlen=1000
+  set ttimeoutlen=20
+
   if has('persistent_undo')
     set undodir=~/.vim/undodir
     set undofile
@@ -79,10 +82,10 @@ call plug#begin('~/.vim/plugged')
     let g:session_autoload = 'no'
     let g:session_autosave = 'no'
 
-    map <Leader>ss :SaveSession 
-    map <Leader>sc :CloseSession<CR>
-    map <Leader>so :OpenSession 
-    map <Leader>sd :DeleteSession 
+    noremap <Leader>ss :SaveSession 
+    noremap <Leader>sc :CloseSession<CR>
+    noremap <Leader>so :OpenSession 
+    noremap <Leader>sd :DeleteSession 
 
   " NerdTree
   Plug 'scrooloose/nerdtree'
@@ -101,8 +104,8 @@ call plug#begin('~/.vim/plugged')
     let NERDTreeShowHidden=0
     let NERDTreeShowLineNumbers=0
 
-    map <C-e> :NERDTreeToggle<CR>
-    map <C-n> :NERDTreeFind<CR>
+    noremap <C-e> :NERDTreeToggle<CR>
+    noremap <C-n> :NERDTreeFind<CR>
 
   " UndoTree
   Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
@@ -130,7 +133,7 @@ call plug#begin('~/.vim/plugged')
 
   " Autoformat using different tools
   Plug 'Chiel92/vim-autoformat', { 'on': 'Autoformat' }
-    map <Leader>f :CustomFmt<CR>
+    noremap <Leader>f :CustomFmt<CR>
 
   function! CustomFormat()
     if &filetype == 'elm'
@@ -146,7 +149,7 @@ call plug#begin('~/.vim/plugged')
   " search with ag/ack inside vim
   Plug 'mileszs/ack.vim', { 'on': 'Ack' }
       let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
-      nmap <leader>ag :Ack! 
+      nnoremap <leader>ag :Ack! 
 
   " great motion helper for jumping quickly
   Plug 'Lokaltog/vim-easymotion'
@@ -162,18 +165,18 @@ call plug#begin('~/.vim/plugged')
 
   " Autoalign things by character
   Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
-    nmap <Leader>a& :Tabularize /&<CR>
-    vmap <Leader>a& :Tabularize /&<CR>
-    nmap <Leader>a= :Tabularize /=<CR>
-    vmap <Leader>a= :Tabularize /=<CR>
-    nmap <Leader>a: :Tabularize /:<CR>
-    vmap <Leader>a: :Tabularize /:<CR>
-    nmap <Leader>a:: :Tabularize /:\zs<CR>
-    vmap <Leader>a:: :Tabularize /:\zs<CR>
-    nmap <Leader>a, :Tabularize /,<CR>
-    vmap <Leader>a, :Tabularize /,<CR>
-    nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-    vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+    nnoremap <Leader>a& :Tabularize /&<CR>
+    vnoremap <Leader>a& :Tabularize /&<CR>
+    nnoremap <Leader>a= :Tabularize /=<CR>
+    vnoremap <Leader>a= :Tabularize /=<CR>
+    nnoremap <Leader>a: :Tabularize /:<CR>
+    vnoremap <Leader>a: :Tabularize /:<CR>
+    nnoremap <Leader>a:: :Tabularize /:\zs<CR>
+    vnoremap <Leader>a:: :Tabularize /:\zs<CR>
+    nnoremap <Leader>a, :Tabularize /,<CR>
+    vnoremap <Leader>a, :Tabularize /,<CR>
+    nnoremap <Leader>a<Bar> :Tabularize /<Bar><CR>
+    vnoremap <Leader>a<Bar> :Tabularize /<Bar><CR>
 
   " display git and hg diff info on the side of a file
   Plug 'mhinz/vim-signify'
@@ -296,7 +299,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer --racer-completer' }
     set completeopt-=preview
     let g:ycm_rust_src_path = '/Users/johann/Development/rust/src/'
-    nmap <leader>g :YcmCompleter GoTo<CR>
+    nnoremap <leader>g :YcmCompleter GoTo<CR>
     let g:ycm_confirm_extra_conf = 0
 
   " Tern for JS
@@ -423,6 +426,21 @@ call plug#end()
 """""""""""""""""""
 "   KEY MAPPINGS  "
 """""""""""""""""""
+
+  " move lines up and down
+  nnoremap _ ddkkp
+  nnoremap - ddp
+
+  nnoremap H ^
+  nnoremap L $
+
+  " easier to reach escape
+  inoremap kj <esc>
+  vnoremap kj <esc>
+
+  " don't press escape anymore
+  inoremap <esc> <nop>
+  vnoremap <esc> <nop>
 
   "arrow keys move between windows
   noremap   <Up>     <C-w><C-k>
