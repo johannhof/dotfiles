@@ -1,5 +1,9 @@
 source $HOME/.antigen/antigen.zsh
 
+bindkey -e
+bindkey "\e\e[D" backward-word
+bindkey "\e\e[C" forward-word
+
 DEFAULT_USER=johann
 
 antigen use oh-my-zsh

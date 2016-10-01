@@ -434,19 +434,11 @@ call plug#end()
   nnoremap H ^
   nnoremap L $
 
-  " easier to reach escape
-  inoremap kj <esc>
-  vnoremap kj <esc>
-
-  " don't press escape anymore
-  inoremap <esc> <nop>
-  vnoremap <esc> <nop>
-
   "arrow keys move between windows
-  noremap   <Up>     <C-w><C-k>
-  noremap   <Down>   <C-w><C-j>
-  noremap   <Left>   <C-w><C-h>
-  noremap   <Right>  <C-w><C-l>
+  nnoremap   <Up>     <C-w><C-k>
+  nnoremap   <Down>   <C-w><C-j>
+  nnoremap   <Left>   <C-w><C-h>
+  nnoremap   <Right>  <C-w><C-l>
 
   " create new tab easily
   nnoremap <Leader>t :tabnew<CR>
