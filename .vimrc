@@ -144,12 +144,16 @@ call plug#begin('~/.vim/plugged')
       Autoformat()
     endif
   endfunction
-  command CustomFmt :call CustomFormat()
+  command! CustomFmt :call CustomFormat()
 
-  " search with ag/ack inside vim
-  Plug 'mileszs/ack.vim', { 'on': 'Ack' }
-      let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
-      nnoremap <leader>ag :Ack! 
+  " grep-like searcher using ripgrep
+  Plug 'mhinz/vim-grepper'
+  nnoremap <leader>ag :Grepper -tool rg<cr>
+  nnoremap <leader>sg :Grepper -tool rg -cword -noprompt<cr>
+  vmap <leader>ag <plug>(GrepperOperator)
+
+  " better repeat operator
+  Plug 'tpope/vim-repeat'
 
   " great motion helper for jumping quickly
   Plug 'Lokaltog/vim-easymotion'
@@ -276,7 +280,40 @@ call plug#begin('~/.vim/plugged')
     " Rust
         Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
-    " Rust
+    " LaTeX
+        Plug 'lervag/vimtex'
+        let g:tex_flavor = 'latex'
+        let g:vimtex_view_general_viewer
+              \ = '/Applications/Skim.app/Contents/SharedSupport/displayline'
+        let g:vimtex_view_general_options = '-r @line @pdf @tex'
+        let g:vimtex_latexmk_build_dir = 'build/'
+
+        " This adds a callback hook that updates Skim after compilation
+        let g:vimtex_latexmk_callback_hooks = ['UpdateSkim']
+
+        function! MyTestHook(status)
+          echom a:status
+        endfunction
+
+        function! UpdateSkim(status)
+          if !a:status | return | endif
+
+          let l:out = b:vimtex.out()
+          let l:tex = expand('%:p')
+          let l:cmd = [g:vimtex_view_general_viewer, '-r']
+          if !empty(system('pgrep Skim'))
+            call extend(l:cmd, ['-g'])
+          endif
+          if has('nvim')
+            call jobstart(l:cmd + [line('.'), l:out, l:tex])
+          elseif has('job')
+            call job_start(l:cmd + [line('.'), l:out, l:tex])
+          else
+            call system(join(l:cmd + [line('.'), shellescape(l:out), shellescape(l:tex)], ' '))
+          endif
+        endfunction
+
+    " Elm
         Plug 'elmcast/elm-vim', { 'for': 'elm' }
         let g:elm_setup_keybindings = 0
 
@@ -433,6 +470,9 @@ call plug#end()
 
   nnoremap H ^
   nnoremap L $
+
+  " easier to reach escape
+  inoremap kj <esc>
 
   "arrow keys move between windows
   nnoremap   <Up>     <C-w><C-k>

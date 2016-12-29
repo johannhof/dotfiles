@@ -39,5 +39,11 @@ export RUST_SRC_PATH="$HOME/Development/rust/src/"
 # git-cinnabar for hg
 export PATH=$PATH:~/Development/git-cinnabar
 
+export PATH=$PATH:/Users/johann/emsdk_portable/clang/fastcomp/build_incoming_64/bin
+export PATH=$PATH:/Users/johann/emsdk_portable/node/4.1.1_64bit/bin
+export PATH=$PATH:/Users/johann/emsdk_portable/emscripten/incoming
+
+export EMSCRIPTEN=/Users/johann/emsdk_portable/emscripten/incoming
+
 # even faster typing
 export KEYTIMEOUT=1

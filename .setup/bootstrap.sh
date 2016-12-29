@@ -6,9 +6,6 @@
 # Should not breaking anything if run multiple times or on an non-blank system, but rather quietly install all missing parts.
 ####
 
-# NOTE: this uses curl | sh excessively as I'm not really scared of huge open source
-# projects injecting malicious code the moment I install this thing on my computer.
-
 # TODO assumes Linux=Debian/Ubuntu and has apt-get
 
 if [ "$(uname)" == "Darwin" ]; then
@@ -71,18 +68,8 @@ fi
 # install node version manager
 curl https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
 
-# install nvim
-brew tap neovim/homebrew-neovim
-brew install --HEAD neovim
-
-# install macvim
-brew install --HEAD macvim
-
 # install linting tools
 brew install tidy-html5
-
-# install AWS CLI
-pip install awscli
 
 # install erlang
 brew install erlang
@@ -90,20 +77,14 @@ brew install erlang
 # install elixir
 brew install elixir
 
-# smart cows
-brew install fortune cowsay
-
 # sshrc
 brew install sshrc
 
-# install rust via multirust
-curl -sf https://raw.githubusercontent.com/brson/multirust/master/blastoff.sh | sh
-
-# casperjs
-brew install casperjs --devel
+# install rust via rustup
+curl https://sh.rustup.rs -sSf | sh
 
 # im/gm
 brew install imagemagick graphicsmagick
 
-# install ag
-brew install ag
+# install ripgrep
+brew install ripgrep
