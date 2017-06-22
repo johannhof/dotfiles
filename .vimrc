@@ -161,7 +161,7 @@ call plug#begin('~/.vim/plugged')
     let g:airline_right_alt_sep = ''
 
     let g:airline_section_c = '%t'
-    let g:airline_section_x = ' '
+    let g:airline_section_x = '%{grepper#statusline()}'
     let g:airline_section_y = '%{pathshorten(getcwd())}'
 
   " Autoformat using different tools
@@ -181,8 +181,12 @@ call plug#begin('~/.vim/plugged')
 
   " grep-like searcher using ripgrep
   Plug 'mhinz/vim-grepper'
-  nnoremap <leader>ag :Grepper -tool rg<cr>
-  nnoremap <leader>sg :Grepper -tool rg -cword -noprompt<cr>
+  let g:grepper = {}
+  let g:grepper.tools = ['rg']
+  let g:grepper.rg = {}
+  let g:grepper.rg.grepprg = 'rg -H --no-heading --vimgrep --smart-case'
+  nnoremap <leader>ag :Grepper<cr>
+  "nnoremap <leader>sg :Grepper -tool ag -side<cr>
   vmap <leader>ag <plug>(GrepperOperator)
 
   " better repeat operator
