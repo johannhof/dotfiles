@@ -107,6 +107,39 @@ call plug#begin('~/.vim/plugged')
     noremap <C-e> :NERDTreeToggle<CR>
     noremap <C-n> :NERDTreeFind<CR>
 
+  " CtrlP
+  Plug 'ctrlpvim/ctrlp.vim'
+    let g:ctrlp_map = '<c-p>'
+
+    " Prevent CtrlP from opening in NERDTree windows
+    function! CtrlPCommand()
+      let c = 0
+      let wincount = winnr('$')
+      " Don't open it here if current buffer is not writable (e.g. NERDTree)
+      while !empty(getbufvar(+expand("<abuf>"), "&buftype")) && c < wincount
+          exec 'wincmd w'
+          let c = c + 1
+      endwhile
+      exec 'CtrlP'
+    endfunction
+
+    let g:ctrlp_cmd = 'call CtrlPCommand()'
+    let g:ctrlp_working_path_mode = 'w'
+    let g:ctrlp_max_files = 0
+    let g:ctrlp_by_filename = 1
+    let g:ctrlp_lazy_update = 1
+    let g:ctrlp_clear_cache_on_exit = 0
+    let g:ctrlp_types = ['mru', 'fil', 'buf']
+
+    " Excluding version control directories
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+
+    " Node modules
+    set wildignore+=*/node_modules/*
+
+    " Firefox specific stuff
+    set wildignore+=*/obj-*,*/objdir-*,*/b2g/*,*/third_party/*,*/servo/*,*/python/*,*/testing/*,*/js/*,*/layout/*
+
   " UndoTree
   Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
     nnoremap <Leader>u :UndotreeToggle<CR>
