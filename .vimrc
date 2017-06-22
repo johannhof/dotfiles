@@ -13,7 +13,6 @@
 """""""""""""""""""
 
 " - Improve CSS/HTML linting and formatting
-" - Unicode emoji seem to be broken on my machine
 " - HTML/JSX tag autoclosing
 " - cwd is behaving weirdly with tabs and not autoupdated on buffer change
 " - Flow server needs to be started manually
@@ -33,6 +32,9 @@
 
   " I don't use backup
   set nobackup
+
+  " Stronger Crypto
+  set cm=blowfish2
 
   " and swap files are annoying
   set noswapfile
@@ -65,6 +67,10 @@
   " This avoids cutting off parameters (after '?') and anchors (after '#'). 
   " See http://vi.stackexchange.com/q/2801/1631
   let g:netrw_gx="<cWORD>"
+
+  " Spell checking for .md and .tex files
+  autocmd BufRead,BufNewFile *.md setlocal spell
+  autocmd BufRead,BufNewFile *.tex setlocal spell
 
 """""""""""""""""""
 "     PLUGINS     "
@@ -494,12 +500,10 @@ call plug#end()
 "   KEY MAPPINGS  "
 """""""""""""""""""
 
-  " move lines up and down
-  nnoremap _ ddkkp
-  nnoremap - ddp
-
   nnoremap H ^
+  vnoremap H ^
   nnoremap L $
+  vnoremap L $
 
   " easier to reach escape
   inoremap kj <esc>
@@ -531,8 +535,8 @@ call plug#end()
   " For when you forget to sudo.. Really Write the file.
   cmap w!! w !sudo tee % >/dev/null
 
-  " Map space to play back the q macro
-  nnoremap <Space> @q
+  " Map space to select the current word
+  nnoremap <space> viw
 
   " Yank to + register with Y
   vnoremap Y "+y
@@ -548,3 +552,20 @@ call plug#end()
   " next search
   nnoremap <C-L> :nohl<CR><C-L>
 
+"""""""""""""""""""
+"  Abbreviations  "
+"""""""""""""""""""
+
+  "iabbrev -pause await new Promise(() => {});
+
+"""""""""""""""""""
+"    Functions    "
+"""""""""""""""""""
+
+function! SFOpen()
+  let l:url = join(["https://searchfox.org/mozilla-central/source/", expand('%'), "#", line('.')], "")
+  call netrw#BrowseX(l:url, netrw#CheckIfRemote())
+endfunction
+
+command! SFOpen :call SFOpen()
+nnoremap <Leader>sf :SFOpen<CR>
