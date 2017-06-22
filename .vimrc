@@ -192,6 +192,14 @@ call plug#begin('~/.vim/plugged')
   " better repeat operator
   Plug 'tpope/vim-repeat'
 
+  " A thesaurus
+  Plug 'ron89/thesaurus_query.vim'
+  nnoremap <Leader>ts :ThesaurusQueryReplaceCurrentWord<CR>
+
+  " Grammar checking
+  Plug 'rhysd/vim-grammarous'
+  let g:grammarous#disabled_rules = { 'tex' : ['WHITESPACE_RULE', 'EN_QUOTES', 'EN_UNPAIRED_BRACKETS',], '*' : ['WHITESPACE_RULE', 'EN_QUOTES', 'EN_UNPAIRED_BRACKETS',], }
+
   " great motion helper for jumping quickly
   Plug 'Lokaltog/vim-easymotion'
 
