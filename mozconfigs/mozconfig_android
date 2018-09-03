@@ -1,0 +1,10 @@
+# Build Firefox for Android:
+ac_add_options --enable-application=mobile/android
+ac_add_options --target=arm-linux-androideabi
+#ac_add_options --target=i386-linux-android
+
+ac_add_options --with-java-bin-path="/Library/Java/Home/bin"
+
+# With the following Android SDK and NDK:
+ac_add_options --with-android-sdk="/Users/johann/.mozbuild/android-sdk-macosx"
+ac_add_options --with-android-ndk="/Users/johann/.mozbuild/android-ndk-r15c"

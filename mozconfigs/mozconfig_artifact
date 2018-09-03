@@ -1,0 +1,14 @@
+# mozconfig_artifact #
+
+#export MOZ_DEBUG="1"
+
+# Automatically download and use compiled C++ components:
+ac_add_options --enable-artifact-builds
+
+#ac_add_options --enable-debug
+
+# Write build artifacts to:
+#mk_add_options MOZ_OBJDIR=./objdir-frontend
+
+# automatic clobber
+mk_add_options AUTOCLOBBER=1

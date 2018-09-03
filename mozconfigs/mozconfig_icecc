@@ -1,0 +1,7 @@
+CC="$HOME/icecream/cc"
+CXX="$HOME/icecream/c++"
+mk_add_options MOZ_MAKE_FLAGS="-j100"
+
+ac_add_options --enable-debug
+
+ac_add_options --disable-stylo
