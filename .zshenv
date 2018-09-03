@@ -4,7 +4,15 @@ export LC_ALL=en_US.UTF-8
 
 ##### PATH #####
 
-export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/opt/ruby/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin"
+#export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/opt/ruby/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin"
+
+export PATH=/bin
+
+export PATH=$PATH:/usr/bin
+
+export PATH=$PATH:/usr/local/bin
+
+export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
 
 # GOPATH
 export GOPATH=~/Development/go
@@ -30,20 +38,14 @@ export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 
 export PATH=$PATH:~/bin
 
-export PATH=$PATH:/Applications/Android\ Studio.app/sdk/platform-tools
+#export PATH=$PATH:/Applications/Android\ Studio.app/sdk/platform-tools
+export PATH=$PATH:~/Library/Android/sdk/platform-tools/
+export PATH=$PATH:~/Library/Android/sdk/emulator/
+#export PATH=$PATH:~/.mozbuild/android-sdk-macosx/platform-tools
 
 export MONO_GAC_PREFIX="/usr/local"
 
 export RUST_SRC_PATH="$HOME/Development/rust/src/"
-
-# git-cinnabar for hg
-export PATH=$PATH:~/Development/git-cinnabar
-
-export PATH=$PATH:/Users/johann/emsdk_portable/clang/fastcomp/build_incoming_64/bin
-export PATH=$PATH:/Users/johann/emsdk_portable/node/4.1.1_64bit/bin
-export PATH=$PATH:/Users/johann/emsdk_portable/emscripten/incoming
-
-export EMSCRIPTEN=/Users/johann/emsdk_portable/emscripten/incoming
 
 # even faster typing
 export KEYTIMEOUT=1

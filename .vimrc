@@ -144,7 +144,7 @@ call plug#begin('~/.vim/plugged')
     set wildignore+=*/node_modules/*
 
     " Firefox specific stuff
-    set wildignore+=*/obj-*,*/objdir-*,*/b2g/*,*/third_party/*,*/servo/*,*/python/*,*/testing/*,*/js/*,*/layout/*
+    set wildignore+=*/obj-*,*/objdir-*,*/third_party/*,*/servo/*,*/python/*,*/js/*
 
   " UndoTree
   Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
@@ -295,6 +295,8 @@ call plug#begin('~/.vim/plugged')
     " Go
     let g:syntastic_go_checkers = ['go', 'golint']
 
+    let g:syntastic_rust_checkers = ['rustc']
+
     " Elm
     let g:elm_syntastic_show_warnings = 1
 
@@ -358,9 +360,6 @@ call plug#begin('~/.vim/plugged')
 
     " F#
         Plug 'kongo2002/fsharp-vim', { 'for': 'fsharp' }
-
-    " Julia
-        Plug 'JuliaLang/julia-vim'
 
     " Go
        Plug 'fatih/vim-go', { 'for': 'go' }
