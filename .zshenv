@@ -30,6 +30,9 @@ export PATH=$PATH:$(brew --prefix ruby)/bin
 # Julia
 export PATH=$PATH:/Applications/Julia-0.3.5.app/Contents/Resources/julia/bin
 
+# Mozilla Arcanist
+export PATH=$PATH:~/.mozbuild/arcanist/bin:~/.mozbuild/moz-phab
+
 # Rust binaries
 export PATH=$PATH:~/.cargo/bin
 

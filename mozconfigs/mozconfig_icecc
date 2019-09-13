@@ -1,7 +1,31 @@
-CC="$HOME/icecream/cc"
-CXX="$HOME/icecream/c++"
-mk_add_options MOZ_MAKE_FLAGS="-j100"
+# -j4 allows 4 tasks to run in parallel. Set the number to be the amount of
+# cores in your machine. In Paris or Toronto use -j100
+mk_add_options MOZ_MAKE_FLAGS="-s -j68"
+mk_add_options AUTOCLOBBER=1
 
+# Enable debug builds
 ac_add_options --enable-debug
+ac_add_options --enable-debug-symbols
 
-ac_add_options --disable-stylo
+# Turn off compiler optimization. This will make applications run slower,
+# will allow you to debug the applications under a debugger, like GDB.
+# ac_add_options --disable-optimize
+
+#enable FFmpeg code
+#ac_add_options --enable-ffmpeg
+
+#Malloc debug
+#ac_add_options --disable-jemalloc
+
+mk_add_options 'export CCACHE_PREFIX=icecc'
+ac_add_options --with-ccache
+#mk_add_options 'export RUSTC_WRAPPER=sccache'
+mk_add_options 'export CARGO_INCREMENTAL=1'
+
+mk_add_options "export ICECC_VERSION=x86_64:$HOME/clang/clang-8.0.0-linux.tar.gz,Darwin17_x86_64:$HOME/clang/clang-8.0.0-darwin.tar.gz"
+#mk_add_options "export ICECC_VERSION=x86_64:$HOME/clang/clang-8.0.0-linux.tar.gz"
+mk_add_options "export ICECC_CC=/usr/local/opt/llvm/bin/clang"
+mk_add_options "export ICECC_CXX=/usr/local/opt/llvm/bin/clang++"
+
+CC="/usr/local/Cellar/icecream/1.2/libexec/icecc/bin/clang --target=x86_64-apple-darwin16.0.0 -mmacosx-version-min=10.11"
+CXX="/usr/local/Cellar/icecream/1.2/libexec/icecc/bin/clang++ --target=x86_64-apple-darwin16.0.0 -mmacosx-version-min=10.11"

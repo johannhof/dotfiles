@@ -65,6 +65,9 @@ elif [ "$LINUX" = true ]; then
     sudo apt-get install zsh
 fi
 
+# Install cmake
+brew install cmake
+
 # install node version manager
 curl https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
 
@@ -72,10 +75,10 @@ curl https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
 brew install tidy-html5
 
 # install erlang
-brew install erlang
+# brew install erlang
 
 # install elixir
-brew install elixir
+# brew install elixir
 
 # sshrc
 brew install sshrc

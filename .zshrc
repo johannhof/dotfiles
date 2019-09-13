@@ -19,6 +19,8 @@ antigen bundles <<EOBUNDLES
   # git
   git
 
+  paulirish/git-open
+
   # mercurial
   mercurial
 
@@ -61,3 +63,5 @@ alias -s exe=mono
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+#Homebrew Python
+export PATH=/usr/local/share/python:$PATH
