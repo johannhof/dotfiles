@@ -4,4 +4,4 @@
 HOST_CC=clang
 HOST_CXX=clang++
 
-mk_add_options MOZ_MAKE_FLAGS="-s -j4"
+mk_add_options MOZ_MAKE_FLAGS="-s -j12"

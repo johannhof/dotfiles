@@ -6,3 +6,8 @@ export CFLAGS="--target=x86_64-apple-darwin16.0.0 -Wno-tautological-compare"
 export CXXFLAGS="--target=x86_64-apple-darwin16.0.0 -Wno-tautological-compare"
 export HOST_CFLAGS="--target=x86_64-apple-darwin16.0.0 -Wno-tautological-compare"
 export HOST_CXXFLAGS="--target=x86_64-apple-darwin16.0.0 -Wno-tautological-compare"
+
+ac_add_options --enable-debug
+ac_add_options --disable-optimize
+
+mk_add_options MOZ_MAKE_FLAGS="-s -j12"

@@ -113,38 +113,21 @@ call plug#begin('~/.vim/plugged')
     noremap <C-e> :NERDTreeToggle<CR>
     noremap <C-n> :NERDTreeFind<CR>
 
-  " CtrlP
-  Plug 'ctrlpvim/ctrlp.vim'
-    let g:ctrlp_map = '<c-p>'
+  Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
+      let $SKIM_DEFAULT_COMMAND = "git ls-tree -r --name-only HEAD || rg --files --glob '!{js/*,python/*,third_party/*}' || ag -l -g \"\" || fd ."
+      noremap <c-p> :call ShowSkim()<CR>
 
-    " Prevent CtrlP from opening in NERDTree windows
-    function! CtrlPCommand()
-      let c = 0
-      let wincount = winnr('$')
-      " Don't open it here if current buffer is not writable (e.g. NERDTree)
-      while !empty(getbufvar(+expand("<abuf>"), "&buftype")) && c < wincount
-          exec 'wincmd w'
-          let c = c + 1
-      endwhile
-      exec 'CtrlP'
-    endfunction
-
-    let g:ctrlp_cmd = 'call CtrlPCommand()'
-    let g:ctrlp_working_path_mode = 'w'
-    let g:ctrlp_max_files = 0
-    let g:ctrlp_by_filename = 1
-    let g:ctrlp_lazy_update = 1
-    let g:ctrlp_clear_cache_on_exit = 0
-    let g:ctrlp_types = ['mru', 'fil', 'buf']
-
-    " Excluding version control directories
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
-
-    " Node modules
-    set wildignore+=*/node_modules/*
-
-    " Firefox specific stuff
-    set wildignore+=*/obj-*,*/objdir-*,*/third_party/*,*/servo/*,*/python/*,*/js/*
+      " Prevent Skim from opening in NERDTree windows
+      function! ShowSkim()
+        let c = 0
+        let wincount = winnr('$')
+        " Don't open it here if current buffer is not writable (e.g. NERDTree)
+        while !empty(getbufvar(+expand("<abuf>"), "&buftype")) && c < wincount
+            exec 'wincmd w'
+            let c = c + 1
+        endwhile
+        exec 'SK'
+      endfunction
 
   " UndoTree
   Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
@@ -154,7 +137,7 @@ call plug#begin('~/.vim/plugged')
 
   " better tab bar
   Plug 'fweep/vim-tabber'
-  set tabline=%!tabber#TabLine()
+    set tabline=%!tabber#TabLine()
 
   " better looking statusline
   Plug 'bling/vim-airline'
@@ -179,11 +162,17 @@ call plug#begin('~/.vim/plugged')
       ElmFormat
     elseif &filetype == 'rust'
       RustFmt
+    elseif &filetype == 'javascript'
+      Prettier
     else
       Autoformat()
     endif
   endfunction
   command! CustomFmt :call CustomFormat()
+
+  Plug 'prettier/vim-prettier', {
+  \ 'do': 'npm install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
   " grep-like searcher using ripgrep
   Plug 'mhinz/vim-grepper'
@@ -199,12 +188,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-repeat'
 
   " A thesaurus
-  Plug 'ron89/thesaurus_query.vim'
-  nnoremap <Leader>ts :ThesaurusQueryReplaceCurrentWord<CR>
+  "Plug 'ron89/thesaurus_query.vim'
+  "nnoremap <Leader>ts :ThesaurusQueryReplaceCurrentWord<CR>
 
   " Grammar checking
-  Plug 'rhysd/vim-grammarous'
-  let g:grammarous#disabled_rules = { 'tex' : ['WHITESPACE_RULE', 'EN_QUOTES', 'EN_UNPAIRED_BRACKETS',], '*' : ['WHITESPACE_RULE', 'EN_QUOTES', 'EN_UNPAIRED_BRACKETS',], }
+  "Plug 'rhysd/vim-grammarous'
+  "let g:grammarous#disabled_rules = { 'tex' : ['WHITESPACE_RULE', 'EN_QUOTES', 'EN_UNPAIRED_BRACKETS',], '*' : ['WHITESPACE_RULE', 'EN_QUOTES', 'EN_UNPAIRED_BRACKETS',], }
 
   " great motion helper for jumping quickly
   Plug 'Lokaltog/vim-easymotion'
@@ -265,6 +254,13 @@ call plug#begin('~/.vim/plugged')
     let g:indent_guides_start_level = 2
     let g:indent_guides_guide_size = 1
     let g:indent_guides_enable_on_vim_startup = 1
+
+  " Snippets
+  Plug 'SirVer/ultisnips'
+  let g:UltiSnipsExpandTrigger="<c-b>"
+  let g:UltiSnipsJumpForwardTrigger="<c-k>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-j>"
+  let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim-snippets/']
 
   " Syntastic
   Plug 'scrooloose/syntastic'
@@ -351,6 +347,9 @@ call plug#begin('~/.vim/plugged')
     " Rust
         Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
+    " Fish
+        Plug 'dag/vim-fish', { 'for': 'fish' }
+
     " Elm
         Plug 'elmcast/elm-vim', { 'for': 'elm' }
         let g:elm_setup_keybindings = 0
@@ -368,14 +367,10 @@ call plug#begin('~/.vim/plugged')
        let g:go_fmt_fail_silently = 1
 
   " Autocompletion
-  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer --racer-completer' }
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --rust-completer --ts-completer' }
     set completeopt-=preview
-    let g:ycm_rust_src_path = '/Users/johann/Development/rust/src/'
     nnoremap <leader>g :YcmCompleter GoTo<CR>
     let g:ycm_confirm_extra_conf = 0
-
-  " Tern for JS
-  Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 
 call plug#end()
 
@@ -402,7 +397,7 @@ call plug#end()
   highlight clear SignColumn
 
   " Font to use
-  set guifont=Fira\ Mono\ for\ Powerline:h12
+  set guifont=Monaco\ for\ Powerline:h12
 
   " Disable cursor blink
   set gcr=a:blinkon0
