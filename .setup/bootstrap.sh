@@ -88,3 +88,5 @@ brew install fd
 
 brew install fortune
 brew install cowsay
+
+brew install valgrind

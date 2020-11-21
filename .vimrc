@@ -81,17 +81,22 @@ call plug#begin('~/.vim/plugged')
   " Colorschemes
   Plug 'flazz/vim-colorschemes'
 
-  " better session management
-  Plug 'xolox/vim-session'
-    " Disable all session locking
-    let g:session_lock_enabled = 0
-    let g:session_autoload = 'no'
-    let g:session_autosave = 'no'
+  if $DOT_ENV != 'remote'
+    " better session management
+    Plug 'xolox/vim-session'
+      " Disable all session locking
+      let g:session_lock_enabled = 0
+      let g:session_autoload = 'no'
+      let g:session_autosave = 'no'
 
-    noremap <Leader>ss :SaveSession 
-    noremap <Leader>sc :CloseSession<CR>
-    noremap <Leader>so :OpenSession 
-    noremap <Leader>sd :DeleteSession 
+      noremap <Leader>ss :SaveSession 
+      noremap <Leader>sc :CloseSession<CR>
+      noremap <Leader>so :OpenSession 
+      noremap <Leader>sd :DeleteSession 
+
+    " required by vim-session
+    Plug 'xolox/vim-misc'
+  endif
 
   " NerdTree
   Plug 'scrooloose/nerdtree'
@@ -170,9 +175,11 @@ call plug#begin('~/.vim/plugged')
   endfunction
   command! CustomFmt :call CustomFormat()
 
-  Plug 'prettier/vim-prettier', {
-  \ 'do': 'npm install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+  if $DOT_ENV != 'remote'
+    Plug 'prettier/vim-prettier', {
+    \ 'do': 'npm install',
+    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+  endif
 
   " grep-like searcher using ripgrep
   Plug 'mhinz/vim-grepper'
@@ -242,12 +249,8 @@ call plug#begin('~/.vim/plugged')
   " Easily change brackets and other surrounding things
   Plug 'tpope/vim-surround'
 
-  " required by vim-session
-  Plug 'xolox/vim-misc'
-
   " display indent guides
   Plug 'nathanaelkane/vim-indent-guides'
-    "let g:indent_guides_auto_colors = 1
     let g:indent_guides_auto_colors = 0
     autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
     autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=237
@@ -255,49 +258,54 @@ call plug#begin('~/.vim/plugged')
     let g:indent_guides_guide_size = 1
     let g:indent_guides_enable_on_vim_startup = 1
 
-  " Snippets
-  Plug 'SirVer/ultisnips'
-  let g:UltiSnipsExpandTrigger="<c-b>"
-  let g:UltiSnipsJumpForwardTrigger="<c-k>"
-  let g:UltiSnipsJumpBackwardTrigger="<c-j>"
-  let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim-snippets/']
+  if $DOT_ENV != 'remote'
+    " Snippets
+    Plug 'SirVer/ultisnips'
+    let g:UltiSnipsExpandTrigger="<c-b>"
+    let g:UltiSnipsJumpForwardTrigger="<c-k>"
+    let g:UltiSnipsJumpBackwardTrigger="<c-j>"
+    let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim-snippets/']
+  endif
 
-  " Syntastic
-  Plug 'scrooloose/syntastic'
-    let g:syntastic_aggregate_errors = 1
-    let g:syntastic_enable_signs=1
-    let g:syntastic_error_symbol = "✗"
-    let g:syntastic_warning_symbol = "⚠"
-    let g:syntastic_always_populate_loc_list = 0
-    let g:syntastic_auto_loc_list = 0
-    let g:syntastic_check_on_open = 1
-    let g:syntastic_check_on_wq = 0
+  if $DOT_ENV != 'remote'
+    " Syntastic
+    Plug 'scrooloose/syntastic'
+      let g:syntastic_aggregate_errors = 1
+      let g:syntastic_enable_signs=1
+      let g:syntastic_error_symbol = "✗"
+      let g:syntastic_warning_symbol = "⚠"
+      let g:syntastic_always_populate_loc_list = 0
+      let g:syntastic_auto_loc_list = 0
+      let g:syntastic_check_on_open = 1
+      let g:syntastic_check_on_wq = 0
 
-    " Coffeescript
-    let g:syntastic_coffee_checkers = ['coffeelint']
-    let g:syntastic_coffee_coffeelint_args="--reporter csv --file ~/.lint/coffeelint.json"
+      " Coffeescript
+      let g:syntastic_coffee_checkers = ['coffeelint']
+      let g:syntastic_coffee_coffeelint_args="--reporter csv --file ~/.lint/coffeelint.json"
 
-    " HTML
-    let g:syntastic_html_checkers = ['tidy']
+      " HTML
+      let g:syntastic_html_checkers = ['tidy']
 
-    " JS
-    Plug 'mtscout6/syntastic-local-eslint.vim'
-    let g:syntastic_javascript_checkers = ['eslint', 'flow']
-    let g:syntastic_javascript_flow_exe = 'flow status'
+      " JS
+      Plug 'mtscout6/syntastic-local-eslint.vim'
+      let g:syntastic_javascript_checkers = ['eslint', 'flow']
+      let g:syntastic_javascript_flow_exe = 'flow status'
 
-    " C++
-    let g:syntastic_cpp_compiler = 'clang++'
+      " C++
+      let g:syntastic_cpp_compiler = 'clang++'
 
-    " Go
-    let g:syntastic_go_checkers = ['go', 'golint']
+      " Go
+      let g:syntastic_go_checkers = ['go', 'golint']
 
-    let g:syntastic_rust_checkers = ['rustc']
+      let g:syntastic_rust_checkers = ['cargo']
 
-    " Elm
-    let g:elm_syntastic_show_warnings = 1
+      " Elm
+      let g:elm_syntastic_show_warnings = 1
+  endif
 
   " Programming Languages
 
+  if $DOT_ENV != 'remote'
     " LaTeX
         "Plug 'lervag/vimtex', { 'for': 'tex' }
         "let g:vimtex_quickfix_open_on_warning = 0
@@ -315,6 +323,29 @@ call plug#begin('~/.vim/plugged')
         "\   '-interaction=nonstopmode',
         "\ ],
         "\}
+
+    " Erlang
+        Plug 'jimenezrick/vimerl', { 'for': 'erlang' }
+
+    " Elixir
+        Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
+
+    " Clojure
+        Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
+
+    " Elm
+        Plug 'elmcast/elm-vim', { 'for': 'elm' }
+        let g:elm_setup_keybindings = 0
+
+    " Kotlin
+        Plug 'udalov/kotlin-vim', { 'for': 'kotlin' }
+
+    " Dart
+        Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
+
+    " F#
+        Plug 'kongo2002/fsharp-vim', { 'for': 'fsharp' }
+  endif
 
     " Javascript
         Plug 'elzr/vim-json', { 'for': 'json' }
@@ -335,30 +366,11 @@ call plug#begin('~/.vim/plugged')
         Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
         Plug 'cespare/vim-toml', { 'for': 'toml' }
 
-    " Erlang
-        Plug 'jimenezrick/vimerl', { 'for': 'erlang' }
-
-    " Elixir
-        Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
-
-    " Clojure
-        Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
-
     " Rust
         Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
     " Fish
         Plug 'dag/vim-fish', { 'for': 'fish' }
-
-    " Elm
-        Plug 'elmcast/elm-vim', { 'for': 'elm' }
-        let g:elm_setup_keybindings = 0
-
-    " Dart
-        Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
-
-    " F#
-        Plug 'kongo2002/fsharp-vim', { 'for': 'fsharp' }
 
     " Go
        Plug 'fatih/vim-go', { 'for': 'go' }
@@ -366,11 +378,13 @@ call plug#begin('~/.vim/plugged')
        let g:go_fmt_autosave = 0
        let g:go_fmt_fail_silently = 1
 
-  " Autocompletion
-  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --rust-completer --ts-completer' }
-    set completeopt-=preview
-    nnoremap <leader>g :YcmCompleter GoTo<CR>
-    let g:ycm_confirm_extra_conf = 0
+  if $DOT_ENV != 'remote'
+    " Autocompletion
+    Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --rust-completer --ts-completer' }
+      set completeopt-=preview
+      nnoremap <leader>g :YcmCompleter GoTo<CR>
+      let g:ycm_confirm_extra_conf = 0
+  endif
 
 call plug#end()
 

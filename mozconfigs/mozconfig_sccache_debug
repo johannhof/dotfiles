@@ -9,5 +9,6 @@ export HOST_CXXFLAGS="--target=x86_64-apple-darwin16.0.0 -Wno-tautological-compa
 
 ac_add_options --enable-debug
 ac_add_options --disable-optimize
+ac_add_options --enable-debug-symbols
 
 mk_add_options MOZ_MAKE_FLAGS="-s -j12"
