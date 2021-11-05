@@ -1,5 +1,3 @@
-ac_add_options --with-macos-sdk=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk
-
 ac_add_options CCACHE=/Users/johann/.cargo/bin/sccache
 
 export CFLAGS="--target=x86_64-apple-darwin16.0.0 -Wno-tautological-compare"
