@@ -80,7 +80,7 @@ call plug#begin('~/.vim/plugged')
   " Colorschemes
   Plug 'flazz/vim-colorschemes'
 
-  if $DOT_ENV != 'remote'
+  if $DOT_ENV == 'local'
     " better session management
     Plug 'xolox/vim-session'
       " Disable all session locking
@@ -219,7 +219,7 @@ call plug#begin('~/.vim/plugged')
     let g:indent_guides_guide_size = 1
     let g:indent_guides_enable_on_vim_startup = 1
 
-  "if $DOT_ENV != 'remote'
+  "if $DOT_ENV == 'local'
     "" Snippets
     "Plug 'SirVer/ultisnips'
     "let g:UltiSnipsExpandTrigger="<c-b>"
@@ -228,12 +228,13 @@ call plug#begin('~/.vim/plugged')
     "let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim-snippets/']
   "endif
 
-  if $DOT_ENV != 'remote'
+  if $DOT_ENV == 'local'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-    let g:coc_global_extensions = ['coc-json', 'coc-yank']
+    let g:coc_global_extensions = ['coc-yank']
 
     " Optional:
+    " coc-json
     " coc-clangd
     " coc-css
     " coc-eslint
@@ -295,7 +296,7 @@ call plug#begin('~/.vim/plugged')
 
   " Programming Languages
 
-  if $DOT_ENV != 'remote'
+  if $DOT_ENV == 'local'
     " LaTeX
         "Plug 'lervag/vimtex', { 'for': 'tex' }
         "let g:vimtex_quickfix_open_on_warning = 0
