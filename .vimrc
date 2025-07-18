@@ -185,7 +185,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
 
   " Display mercurial infos inside vim
-  Plug 'jlfwong/vim-mercenary'
+  " Plug 'jlfwong/vim-mercenary'
 
   " Easy commenting
   Plug 'scrooloose/nerdcommenter'
@@ -316,48 +316,47 @@ call plug#begin('~/.vim/plugged')
         "\}
 
     " Erlang
-        Plug 'jimenezrick/vimerl', { 'for': 'erlang' }
+        " Plug 'jimenezrick/vimerl', { 'for': 'erlang' }
 
     " Elixir
-        Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
+        " Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 
     " Clojure
-        Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
+        " Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
 
     " Elm
-        Plug 'elmcast/elm-vim', { 'for': 'elm' }
-        let g:elm_setup_keybindings = 0
+        " Plug 'elmcast/elm-vim', { 'for': 'elm' }
+        " let g:elm_setup_keybindings = 0
 
     " Kotlin
-        Plug 'udalov/kotlin-vim', { 'for': 'kotlin' }
+        " Plug 'udalov/kotlin-vim', { 'for': 'kotlin' }
 
     " Dart
-        Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
+        " Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
 
     " F#
-        Plug 'kongo2002/fsharp-vim', { 'for': 'fsharp' }
+        " Plug 'kongo2002/fsharp-vim', { 'for': 'fsharp' }
   endif
 
     " Javascript
-        Plug 'elzr/vim-json', { 'for': 'json' }
-        Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'xhtml', 'html'] }
-        Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-        autocmd BufNewFile,BufRead *.jsx set filetype=javascript
-        autocmd BufNewFile,BufRead *.cjsx set filetype=coffee
+        " Plug 'elzr/vim-json', { 'for': 'json' }
+        " Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'xhtml', 'html'] }
+        " Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+        " autocmd BufNewFile,BufRead *.jsx set filetype=javascript
+        " autocmd BufNewFile,BufRead *.cjsx set filetype=coffee
 
     " Typescript
-      Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
+      " Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 
     " CSS
         Plug 'gorodinskiy/vim-coloresque'
-        Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
-        Plug 'groenewege/vim-less', { 'for': 'less' }
-        Plug 'wavded/vim-stylus', { 'for': 'stylus' }
-        Plug 'cakebaker/scss-syntax.vim', { 'for': ['scss', 'sass'] }
+        " Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
+        " Plug 'groenewege/vim-less', { 'for': 'less' }
+        " Plug 'wavded/vim-stylus', { 'for': 'stylus' }
+        " Plug 'cakebaker/scss-syntax.vim', { 'for': ['scss', 'sass'] }
 
     " Markup
-        Plug 'tpope/vim-haml', { 'for': 'haml' }
-        Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
+        " Plug 'tpope/vim-haml', { 'for': 'haml' }
         Plug 'cespare/vim-toml', { 'for': 'toml' }
 
     " Rust
@@ -367,10 +366,10 @@ call plug#begin('~/.vim/plugged')
         Plug 'dag/vim-fish', { 'for': 'fish' }
 
     " Go
-       Plug 'fatih/vim-go', { 'for': 'go' }
+       " Plug 'fatih/vim-go', { 'for': 'go' }
        " disable fmt on save
-       let g:go_fmt_autosave = 0
-       let g:go_fmt_fail_silently = 1
+       " let g:go_fmt_autosave = 0
+       " let g:go_fmt_fail_silently = 1
 
 call plug#end()
 
