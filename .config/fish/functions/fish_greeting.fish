@@ -1,3 +1,5 @@
 function fish_greeting
-  fortune
+  if command -v fortune > /dev/null
+    fortune
+  end
 end
