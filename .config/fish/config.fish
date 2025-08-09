@@ -9,6 +9,8 @@ set -g __fish_git_prompt_showuntrackedfiles 'yes'
 
 # PATH
 
+set -x PATH $PATH $HOME/bin
+
 ## Rust binaries
 set -x PATH $PATH $HOME/.cargo/bin
 
