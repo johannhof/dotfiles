@@ -71,6 +71,8 @@
   autocmd BufRead,BufNewFile *.md setlocal spell
   autocmd BufRead,BufNewFile *.tex setlocal spell
 
+  noremap <Leader>a :set paste!<CR>
+
 """""""""""""""""""
 "     PLUGINS     "
 """""""""""""""""""
@@ -117,21 +119,30 @@ call plug#begin('~/.vim/plugged')
     noremap <C-e> :NERDTreeToggle<CR>
     noremap <C-n> :NERDTreeFind<CR>
 
-  Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
-      let $SKIM_DEFAULT_COMMAND = "git ls-tree -r --name-only HEAD || rg --files --glob '!{js/*,python/*,third_party/*}' || ag -l -g \"\" || fd ."
-      noremap <c-p> :call ShowSkim()<CR>
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
+  Plug 'junegunn/fzf.vim'
+    let g:fzf_vim = {}
+    let g:fzf_vim.buffers_jump = 1
+    noremap <c-s> :GitFiles?<CR>
+    noremap <c-p> :Files<CR>
 
-      " Prevent Skim from opening in NERDTree windows
-      function! ShowSkim()
-        let c = 0
-        let wincount = winnr('$')
-        " Don't open it here if current buffer is not writable (e.g. NERDTree)
-        while !empty(getbufvar(+expand("<abuf>"), "&buftype")) && c < wincount
-            exec 'wincmd w'
-            let c = c + 1
-        endwhile
-        exec 'SK'
-      endfunction
+    "let $FZF_DEFAULT_COMMAND = "git ls-tree -r --name-only HEAD || rg --files --glob '!{js/*,python/*,third_party/*}' || ag -l -g \"\" || fd ."
+
+  "Plug 'lotabout/skim.vim'
+
+      "noremap <c-p> :call ShowSkim()<CR>
+
+      "" Prevent Skim from opening in NERDTree windows
+      "function! ShowSkim()
+        "let c = 0
+        "let wincount = winnr('$')
+        "" Don't open it here if current buffer is not writable (e.g. NERDTree)
+        "while !empty(getbufvar(+expand("<abuf>"), "&buftype")) && c < wincount
+            "exec 'wincmd w'
+            "let c = c + 1
+        "endwhile
+        "exec 'SK'
+      "endfunction
 
   " UndoTree
   Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
